@@ -45,7 +45,7 @@ public class OrderComntroller {
 	 private List<OrderModel> orderList = new ArrayList<OrderModel>();
 	 private List<BasketModel> basketList = new ArrayList<BasketModel>(); 
 	 
-	 //ÁÖ¹® Æû
+	 //ì£¼ë¬¸ í¼
 	 @RequestMapping(value="/orderForm.dog")
 	 public ModelAndView orderForm(HttpServletRequest request, GoodsModel goodsModel, HttpSession session ){
 		 
@@ -72,7 +72,7 @@ public class OrderComntroller {
 		 }
 	 }
 	 
-	 //¿ìÆí¹øÈ£Ã£±â Æû
+	 //ìš°í¸ë²ˆí˜¸ì°¾ê¸° í¼
 	 @RequestMapping(value="/zipcodeCheckForm.dog")
      public ModelAndView zipcodeCheckForm( HttpServletRequest req) throws Exception{
 		 	
@@ -80,7 +80,7 @@ public class OrderComntroller {
             mv.setViewName("check/zipcodeCheck2");
          return mv;
   }
-        /*ÁÖ¹®½Ã ¿ìÆí¹øÈ£ °Ë»ö ·ÎÁ÷*/ 
+        /*ì£¼ë¬¸ì‹œ ìš°í¸ë²ˆí˜¸ ê²€ìƒ‰ ë¡œì§*/ 
         @RequestMapping(value="/zipcodeCheck.dog")
         public ModelAndView zipcodeCheck( @ModelAttribute ZipcodeModel zipcodeModel ,HttpServletRequest req) throws Exception{
            ModelAndView mv = new ModelAndView();
@@ -99,7 +99,7 @@ public class OrderComntroller {
          }   
 	
         
-        //1Â÷ ÁÖ¹® ³Ö±â
+        //1ì°¨ ì£¼ë¬¸ ë„£ê¸°
         @RequestMapping(value="/orderForm1.dog")
    	 	public ModelAndView orderInsert(HttpServletRequest request, GoodsModel goodsModel, HttpSession session, OrderModel orderModel,MemberModel memberModel ){
    		 
@@ -116,10 +116,10 @@ public class OrderComntroller {
    		 orderModel.setOrder_receive_zipcode(memberModel.getZipcode());
    		 orderModel.setOrder_receive_addr(memberModel.getAddr()+" " + memberModel.getAddr2());
          orderModel.setOrder_goods_name(goodsModel.getGoods_name());
-         //orderModel.setOrder_trade_payer("½ÅÇÑÀºÇà : 110-376-206254 ¹ÚÁØ¿µ");
+         //orderModel.setOrder_trade_payer("ì‹ í•œì€í–‰ : 110-376-206254 ë°•ì¤€ì˜");
          
    		 if(orderModel.getOrder_memo() == ""){
-   			 orderModel.setOrder_memo("¾øÀ½");
+   			 orderModel.setOrder_memo("ì—†ìŒ");
    		 }
          
          
@@ -133,16 +133,16 @@ public class OrderComntroller {
         }
         
 
-        //ÁÖ¹®ÇÏ±â Ã³¸®
+        //ì£¼ë¬¸í•˜ê¸° ì²˜ë¦¬
         @RequestMapping(value="/orderbuyOk.dog")
         public ModelAndView orderBuyOk(HttpServletRequest request, OrderModel orderModel){
         	
-        	orderModel.setOrder_trans_num("ÁØºñÁß"); //StringÀ¸·Î ¹Ù²Ù°í  ÁØºñÁß »ğÀÔ
-        	orderModel.setOrder_status("»óÇ°ÁØºñ");
+        	orderModel.setOrder_trans_num("ì¤€ë¹„ì¤‘"); //Stringìœ¼ë¡œ ë°”ê¾¸ê³   ì¤€ë¹„ì¤‘ ì‚½ì…
+        	orderModel.setOrder_status("ìƒí’ˆì¤€ë¹„");
         	
         	orderList = orderService.OrderList(orderModel);
         	
-        	//Ã³À½ ÁÖ¹® ¹ŞÀ»¶§ ÁÖ¹®¹øÈ£¼³Á¤À» 1·Î
+        	//ì²˜ìŒ ì£¼ë¬¸ ë°›ì„ë•Œ ì£¼ë¬¸ë²ˆí˜¸ì„¤ì •ì„ 1ë¡œ
         	if(orderList.size() == 0){
         		orderModel.setOrder_trade_num(1);
         		orderService.OrderInsert(orderModel);
@@ -157,7 +157,7 @@ public class OrderComntroller {
         
         	orderModel.setOrder_trade_num(order_trade_num+1);
         	
-        	//¼ö·® °¨¼Ò
+        	//ìˆ˜ëŸ‰ ê°ì†Œ
         	goodsModel = goodsService.goodsView(orderModel.getOrder_goods_num());
         	int amount = goodsModel.getGoods_amount() - orderModel.getOrder_goods_amount();
         	goodsModel.setGoods_amount(amount);
@@ -166,7 +166,7 @@ public class OrderComntroller {
         	
         	orderService.OrderInsert(orderModel);        	
         	
-        	//±¸¸ÅÇÏ±â¿¡¼­ ÁÖ¹®¹øÈ£»Ì¾Æ³»±â
+        	//êµ¬ë§¤í•˜ê¸°ì—ì„œ ì£¼ë¬¸ë²ˆí˜¸ë½‘ì•„ë‚´ê¸°
         	OrderModel orderModel4 = new OrderModel(); 
         	orderModel4 = (OrderModel) orderService.OrdergetOne(orderModel.getOrder_trade_num());
         	      	    
@@ -178,7 +178,7 @@ public class OrderComntroller {
         }
         
         
-        //ÁÖ¹®¸®½ºÆ® 
+        //ì£¼ë¬¸ë¦¬ìŠ¤íŠ¸ 
         @RequestMapping(value="/orderList.dog")
         public ModelAndView orderList(HttpServletRequest request, HttpSession session){
         	
@@ -197,7 +197,7 @@ public class OrderComntroller {
         }
         
         
-        //ÁÖ¹® »óÇ° »èÁ¦
+        //ì£¼ë¬¸ ìƒí’ˆ ì‚­ì œ
         @RequestMapping(value="/orderdelete.dog")
         public ModelAndView orderdelete(HttpServletRequest request, OrderModel orderModel){
         	
@@ -207,7 +207,7 @@ public class OrderComntroller {
         	return mav;
         }
         
-        //¹Ù½ºÄÏ ¿À´õ Ã³¸®
+        //ë°”ìŠ¤ì¼“ ì˜¤ë” ì²˜ë¦¬
         @RequestMapping(value="/basketorderForm.dog")
         public ModelAndView basketorderForm(HttpServletRequest request, HttpSession session ){
    		 
@@ -255,7 +255,7 @@ public class OrderComntroller {
      
         
    		 if(orderModel.getOrder_memo() == ""){
-   			 orderModel.setOrder_memo("¾øÀ½");
+   			 orderModel.setOrder_memo("ì—†ìŒ");
    		 }
          
          
@@ -285,7 +285,7 @@ public class OrderComntroller {
         	Order_trade_num += 1;
         	
         	
-        	//Àå¹Ù±¸´Ï ±¸¸Å¼ö·® °Ë»ç
+        	//ì¥ë°”êµ¬ë‹ˆ êµ¬ë§¤ìˆ˜ëŸ‰ ê²€ì‚¬
         	for(int i=0; i < basketList.size(); i ++){
         		basketModel = basketList.get(i);
         		
@@ -307,7 +307,7 @@ public class OrderComntroller {
         		
         		
         		
-        		//¼ö·® °¨¼Ò
+        		//ìˆ˜ëŸ‰ ê°ì†Œ
             	goodsModel = goodsService.goodsView(basketModel.getBasket_goods_num());
             	
             	int amount = goodsModel.getGoods_amount() - basketModel.getBasket_goods_amount();
@@ -323,8 +323,8 @@ public class OrderComntroller {
         		orderModel.setOrder_goods_amount(basketModel.getBasket_goods_amount());
         		orderModel.setOrder_sum_money(basketModel.getBasket_goods_price() * basketModel.getBasket_goods_amount());
         		orderModel.setOrder_goods_image(basketModel.getBasket_goods_image());
-        		orderModel.setOrder_trans_num("ÁØºñÁß"); //StringÀ¸·Î ¹Ù²Ù°í  ÁØºñÁß »ğÀÔ
-            	orderModel.setOrder_status("»óÇ°ÁØºñ");
+        		orderModel.setOrder_trans_num("ì¤€ë¹„ì¤‘"); //Stringìœ¼ë¡œ ë°”ê¾¸ê³   ì¤€ë¹„ì¤‘ ì‚½ì…
+            	orderModel.setOrder_status("ìƒí’ˆì¤€ë¹„");
             	orderModel.setOrder_trade_num(Order_trade_num);
             	
             	

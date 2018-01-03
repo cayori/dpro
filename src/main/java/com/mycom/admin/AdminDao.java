@@ -7,51 +7,51 @@ import com.mycom.member.MemberModel;
 import com.mycom.order.OrderModel;
 
 public interface AdminDao {
-	//»óÇ°¸ñ·Ï
+	//ìƒí’ˆëª©ë¡
 	public List<GoodsModel> goodsList();
 	
-	//»óÇ°µî·Ï
+	//ìƒí’ˆë“±ë¡
 	public Object insertGoods(GoodsModel GoodsModel);
 	
-	//°Ë»ö (0=»óÇ°ÀÌ¸§, 1=»óÇ°¹øÈ£ 2=Ä«Å×°í¸®)
+	//ê²€ìƒ‰ (0=ìƒí’ˆì´ë¦„, 1=ìƒí’ˆë²ˆí˜¸ 2=ì¹´í…Œê³ ë¦¬)
 	List<GoodsModel> goodsSearch0(String search);
 	List<GoodsModel> goodsSearch1(String search);
 	List<GoodsModel> goodsSearch2(String search);
 	List<GoodsModel> goodsSearch3(String search);
 	
-	//±Û»èÁ¦
+	//ê¸€ì‚­ì œ
 	public int goodsDelete(int goods_num);
 	
-	//±Û¼öÁ¤
+	//ê¸€ìˆ˜ì •
 	public int goodsModify(GoodsModel GoodsModel);
 	
-	//±Û ÇÏ³ª ºÒ·¯¿À±â -¼öÁ¤
+	//ê¸€ í•˜ë‚˜ ë¶ˆëŸ¬ì˜¤ê¸° -ìˆ˜ì •
 	public GoodsModel goodsAdminView(int goods_num);
 	
-	//È¸¿ø¸ñ·Ï
+	//íšŒì›ëª©ë¡
 	public List<MemberModel> memberList();
 	
-	//È¸¿ø°Ë»ö
+	//íšŒì›ê²€ìƒ‰
 	List<MemberModel> memberSearch0(String search);
 	
-	//È¸¿ø»èÁ¦
+	//íšŒì›ì‚­ì œ
 	public int memberDelete(String id);
 
 	public Object adminmemberModify(MemberModel member);
 	
-	//ÁÖ¹®¸®½ºÆ® Ãâ·Â
+	//ì£¼ë¬¸ë¦¬ìŠ¤íŠ¸ ì¶œë ¥
 	public List<OrderModel> orderAllList();
 	
-	//ÁÖ¹®°Ë»ö
+	//ì£¼ë¬¸ê²€ìƒ‰
 	public List<OrderModel> orderSearch0(String search);
 	
-	//°áÀç¹æ½Ä
+	//ê²°ì¬ë°©ì‹
 	public List<OrderModel> orderSearch1(String search);
 	
-	//ÁÖ¹®»óÅÂ
+	//ì£¼ë¬¸ìƒíƒœ
 	public List<OrderModel> orderSearch2(String search);
 	
-	//ÁÖ¹®¼öÁ¤
+	//ì£¼ë¬¸ìˆ˜ì •
 	public Object orderModify(OrderModel OrderModel);
 	
 }

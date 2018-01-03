@@ -4,47 +4,47 @@ import java.util.List;
 
 public interface ReviewDAO {
 
-	//±Û¸ñ·Ï
+	//ê¸€ëª©ë¡
 	List<ReviewModel> reviewList();
 	
-	//°Ë»ö (0=Á¦¸ñ, 1=³»¿ë, 2=ÀÌ¸§)
+	//ê²€ìƒ‰ (0=ì œëª©, 1=ë‚´ìš©, 2=ì´ë¦„)
 	List<ReviewModel> reviewSearch0(String search);
 	List<ReviewModel> reviewSearch1(String search);
 	List<ReviewModel> reviewSearch2(String search);
 
-	//±Û¾²±â
+	//ê¸€ì“°ê¸°
 	int reviewWrite(ReviewModel reviewModel);
 
-	//»ó¼¼º¸±â
+	//ìƒì„¸ë³´ê¸°
 	ReviewModel reviewView(int no);
 	
-	//Á¶È¸¼ö Áõ°¡
+	//ì¡°íšŒìˆ˜ ì¦ê°€
 	int reviewUpdateReadhit(int no);
 	
-	//±Û »èÁ¦
+	//ê¸€ ì‚­ì œ
 	int reviewDelete(int no);
 
-	//±Û ¼öÁ¤
+	//ê¸€ ìˆ˜ì •
 	int reviewModify(ReviewModel reviewModel);
 	
-	//´ñ±Û¸ñ·Ï
+	//ëŒ“ê¸€ëª©ë¡
 	List<ReviewcommModel> reviewcommList(int no);
 	
-	//´ñ±Û¾²±â
+	//ëŒ“ê¸€ì“°ê¸°
 	int reviewcommWrite(ReviewcommModel reviewcommModel);
 	
-	//´ñ±Û»èÁ¦
+	//ëŒ“ê¸€ì‚­ì œ
 	int reviewcommDelete(ReviewcommModel reviewcommModel);
 	
-	//´ñ±Û ¸ğµÎ »èÁ¦
+	//ëŒ“ê¸€ ëª¨ë‘ ì‚­ì œ
 	int reviewallcommDelete(int no);
 			
-	//´ñ±Û ÃÑ °³¼ö
+	//ëŒ“ê¸€ ì´ ê°œìˆ˜
 	int reviewcommCount(int no);
 	
-	//´ñ±Û 1 »ó½Â
+	//ëŒ“ê¸€ 1 ìƒìŠ¹
 	int reviewcommUpdate1(int no);
 			
-	//´ñ±Û 1 ÇÏ¶ô
+	//ëŒ“ê¸€ 1 í•˜ë½
 	int reviewcommUpdate2(int no);
 }

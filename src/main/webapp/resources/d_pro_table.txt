@@ -1,4 +1,4 @@
-ÆÄÀÏ ¾÷·Îµå ÆĞ½º Àâ´Â °÷
+íŒŒì¼ ì—…ë¡œë“œ íŒ¨ìŠ¤ ì¡ëŠ” ê³³
 
 admin/AdminController.java
  - String uploadPath
@@ -7,7 +7,7 @@ pet/PetController.java
  - String path
  
 pet_img/Pet_imgController.java
- - String path                          //Æê, ÆêÀÌ¹ÌÁö °°Àº °æ·Î »ç¿ë  
+ - String path                          //í«, í«ì´ë¯¸ì§€ ê°™ì€ ê²½ë¡œ ì‚¬ìš©  
 
 
 review/ReviewController.java
@@ -15,20 +15,20 @@ review/ReviewController.java
  
  
  
-dbÁ¢¼Ó ¼³Á¤
+dbì ‘ì† ì„¤ì •
   
 /d_pro/src/main/webapp/WEB-INF/spring/root-context.xml
 
-ºóµî·Ï ¼³Á¤
+ë¹ˆë“±ë¡ ì„¤ì •
 
 /d_pro/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 
 
 
-ÃÖÁ¾ Å×ÀÌºí
+ìµœì¢… í…Œì´ë¸”
 
-recommendation number default '0',  //ÃßÃµ¾ÆÁ÷ ±¸Çö ¾ÈµÊ
+recommendation number default '0',  //ì¶”ì²œì•„ì§ êµ¬í˜„ ì•ˆë¨
 
-1. ¼îÇÎ¸ô »óÇ° -goods
+1. ì‡¼í•‘ëª° ìƒí’ˆ -goods
 
 CREATE TABLE GOODS(
 	GOODS_NUM number primary key not null, 
@@ -54,7 +54,7 @@ create sequence goods_SEQ NOCACHE;
 
 
 
-2. °øÁö»çÇ× - notice
+2. ê³µì§€ì‚¬í•­ - notice
 
 CREATE TABLE notice(
 no number(22) not null,
@@ -77,7 +77,7 @@ create sequence NOTICE_SEQ NOCACHE;
 
 2016.07.05
 
-3. ±¸¸ÅÈÄ±â(´ñ±Û)-ÀÌ¹ÌÁö - review
+3. êµ¬ë§¤í›„ê¸°(ëŒ“ê¸€)-ì´ë¯¸ì§€ - review
 
 create table review(
 no number primary key not null,
@@ -98,7 +98,7 @@ create sequence REVIEW_SEQ NOCACHE;
 
 
 
-4. Q&A(´ñ±Û or ´äº¯) - qna
+4. Q&A(ëŒ“ê¸€ or ë‹µë³€) - qna
 
 create table QNA(		                            
 no number primary key not null,				
@@ -123,7 +123,7 @@ create sequence QNA_SEQ NOCACHE;
 
 
 
-5. ¸¶ÀÌÆê °¶·¯¸®(´ñ±Û)-ÃßÃµ,ÀÌ¹ÌÁö - pet_img
+5. ë§ˆì´í« ê°¤ëŸ¬ë¦¬(ëŒ“ê¸€)-ì¶”ì²œ,ì´ë¯¸ì§€ - pet_img
 
 create table pet_img(
 no number primary key not null,
@@ -145,7 +145,7 @@ create sequence PET_IMG_SEQ NOCACHE;
 
 
 
-6. ºĞ¾ç°Ô½ÃÆÇ(´ñ±Û)-ÀÌ¹ÌÁö - pet
+6. ë¶„ì–‘ê²Œì‹œíŒ(ëŒ“ê¸€)-ì´ë¯¸ì§€ - pet
 
 create table pet(
 no number primary key not null,
@@ -166,7 +166,7 @@ create sequence PET_SEQ NOCACHE;
 
 
 
-7. È¸¿ø - member
+7. íšŒì› - member
 
 create table member(
 num number primary key not null,
@@ -207,7 +207,7 @@ create table zipcode(
 
 
 
-9. ÁÖ¹®Ã³¸® - goods_order
+9. ì£¼ë¬¸ì²˜ë¦¬ - goods_order
 
 CREATE TABLE GOODS_ORDER(
 	ORDER_NUM NUMBER PRIMARY KEY NOT NULL,
@@ -236,7 +236,7 @@ CREATE TABLE GOODS_ORDER(
 create sequence ORDER_SEQ NOCACHE;
 
 
-10. Àå¹Ù±¸´Ï - basket
+10. ì¥ë°”êµ¬ë‹ˆ - basket
 
 CREATE TABLE BASKET(
 	BASKET_NUM NUMBER PRIMARY KEY NOT NULL,
@@ -257,7 +257,7 @@ create sequence BASKET_SEQ NOCACHE;
 
 
 
-11.¸®ºä ´ñ±Û - review_comment
+11.ë¦¬ë·° ëŒ“ê¸€ - review_comment
 
 create table review_comment(
  content_num number not null,
@@ -270,7 +270,7 @@ create table review_comment(
 create sequence review_comment_SEQ NOCACHE;
 
 
-12.qna ´ñ±Û - qna_comment,
+12.qna ëŒ“ê¸€ - qna_comment,
 
 create table qna_comment(
  content_num number not null,
@@ -285,7 +285,7 @@ create sequence qna_comment_SEQ NOCACHE;
 
 
 
-13.¸¶ÀÌÆê °¶·¯¸® ´ñ±Û - pet_img_comment,
+13.ë§ˆì´í« ê°¤ëŸ¬ë¦¬ ëŒ“ê¸€ - pet_img_comment,
 
 create table pet_img_comment(
 COMMENT_NUM number primary key not null,
@@ -300,7 +300,7 @@ create sequence pet_img_comment_SEQ NOCACHE;
 
 
 
-14.ºĞ¾ç °¶·¯¸® ´ñ±Û pet_comment
+14.ë¶„ì–‘ ê°¤ëŸ¬ë¦¬ ëŒ“ê¸€ pet_comment
 
 create table pet_comment(
 COMMENT_NUM number primary key not null,
@@ -316,7 +316,7 @@ create sequence pet_comment_SEQ NOCACHE;
 
 
 
-15. »óÇ° ¸®ºäÄÚ¸àÆ®
+15. ìƒí’ˆ ë¦¬ë·°ì½”ë©˜íŠ¸
 
 create table goods_comment(
 COMMENT_NUM number primary key not null,
@@ -330,7 +330,7 @@ CMT_DATE date
 
 create sequence goods_comment_SEQ NOCACHE;
 
-¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ¤Ñ
+ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡ã…¡
 
 
 

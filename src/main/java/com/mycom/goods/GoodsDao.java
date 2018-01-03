@@ -10,7 +10,7 @@ public interface GoodsDao {
 	public GoodsModel goodsView(int goods_num);
 	
 	public List<GoodsModel> goodsCategoryList(String goods_category);
-	//1=√ﬂ√µ, 2=∫£Ω∫∆Æ, 3=Ω≈ªÛ
+	//1=Ï∂îÏ≤ú, 2=Î≤†Ïä§Ìä∏, 3=Ïã†ÏÉÅ
 	public List<GoodsModel> goodsSelectList1(String goods_best);
 	
 	public Object amountDown(GoodsModel goodsModel);

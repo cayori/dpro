@@ -41,7 +41,7 @@ public class QnAController {
 
 	@ModelAttribute("qnaModel")
 	public QnAModel formBack() {
-		return new QnAModel(); // °´Ã¼ »ı¼ºÈÄ ¹İÈ¯
+		return new QnAModel(); // ê°ì²´ ìƒì„±í›„ ë°˜í™˜
 	}
 
 	@RequestMapping(value = "/QnAList.dog")
@@ -58,7 +58,7 @@ public class QnAController {
 		List<QnAModel> list;
 		list = qnAService.QnAList();
 
-		/* °Ô½ÃÆÇ °Ë»ö */
+		/* ê²Œì‹œíŒ ê²€ìƒ‰ */
 		String isSearch = request.getParameter("isSearch");
 		if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
 
@@ -74,15 +74,15 @@ public class QnAController {
 				
 			}
 		}
-		/* ´äº¯ À¯¹« Ä«Å×°í¸® ºĞ·ù */
+		/* ë‹µë³€ ìœ ë¬´ ì¹´í…Œê³ ë¦¬ ë¶„ë¥˜ */
 		replyNum = request.getParameter("replyNum");
 
 		if (replyNum == null) {
 			System.out.println(replyNum);
-			// ÄŞº¸¹Ú½º°¡ ÀÔ·ÂÀÌ ¾È µÈ »óÅÂ
+			// ì½¤ë³´ë°•ìŠ¤ê°€ ì…ë ¥ì´ ì•ˆ ëœ ìƒíƒœ
 		} else {
 			System.out.println(replyNum);
-			// ÄŞº¸¹Ú½º°¡ ÀÔ·ÂÀÌ µÈ »óÅÂ
+			// ì½¤ë³´ë°•ìŠ¤ê°€ ì…ë ¥ì´ ëœ ìƒíƒœ
 			if (!(replyNum.equals("null"))) {
 				if (replyNum.equals("1")) {
 					list = qnAService.QnAreply1();
@@ -135,10 +135,10 @@ public class QnAController {
 
 		ModelAndView mav = new ModelAndView();
 
-		/* º§¸®µ¥ÀÌÆ® */
+		/* ë²¨ë¦¬ë°ì´íŠ¸ */
 		new QnAValidator().validate(qnaModel, result);
 		if (result.hasErrors()) {
-			System.out.println("Ãâ·Â" + result.getErrorCount());
+			System.out.println("ì¶œë ¥" + result.getErrorCount());
 			mav.setViewName("QnAForm");
 			return mav;
 		}
@@ -214,7 +214,7 @@ public class QnAController {
 		List<QnAcommModel> QnAcommList;
 		QnAcommList = qnAService.QnAcommList(no);
 
-		/* ´ñ±Û ¼¼±â */
+		/* ëŒ“ê¸€ ì„¸ê¸° */
 		comment_count = QnAcommList.size();
 
 		mav.addObject("CommList", QnAcommList);
@@ -264,22 +264,22 @@ public class QnAController {
 			HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 
-		// System.out.println("½ÃÀÛÇÒ¶§ ´ñ±Û¹øÈ£ : " + qnacommModel.getComment_num());
-		// System.out.println("´ñ±Û¾´»ç¶÷ : "+
+		// System.out.println("ì‹œì‘í• ë•Œ ëŒ“ê¸€ë²ˆí˜¸ : " + qnacommModel.getComment_num());
+		// System.out.println("ëŒ“ê¸€ì“´ì‚¬ëŒ : "+
 		// session.getAttribute("session_member_id"));
 
 		int no = qnaModel.getNo();
 
 		qnAService.QnAcommDelete(qnacommModel);
-		// Áö¿ì´ÂSQL ½ÇÇà
+		// ì§€ìš°ëŠ”SQL ì‹¤í–‰
 
 		qnAService.QnAView(no);
 		qnAService.QnAcommUpdate2(no);
 		commenter = (String) session.getAttribute("session_member_id");
-		// System.out.println("Äõ¸®½ÇÇàÈÄ ÄÚ¸àÅÍ"+commenter);
+		// System.out.println("ì¿¼ë¦¬ì‹¤í–‰í›„ ì½”ë©˜í„°"+commenter);
 
 		if (commenter.equals("admin")) {
-			// System.out.println("if¹® ÁøÀÔ");
+			// System.out.println("ifë¬¸ ì§„ì…");
 			qnAService.AdmindeleteReply(no);
 		}
 

@@ -25,7 +25,7 @@ public class GoodsController {
 	
 	String session_member_id;
 	
-	//goods ¸®½ºÆ®
+	//goods ë¦¬ìŠ¤íŠ¸
 	@RequestMapping("goodsList.dog")
 	public ModelAndView goodsList(HttpServletRequest request) throws Exception{		
 			
@@ -39,7 +39,7 @@ public class GoodsController {
 	}
 	
 	
-	///goods Ä«Å×°í¸®º°·Î ¸®½ºÆ® »Ì¾Æ³»±â
+	///goods ì¹´í…Œê³ ë¦¬ë³„ë¡œ ë¦¬ìŠ¤íŠ¸ ë½‘ì•„ë‚´ê¸°
 	@RequestMapping("goodsCategoryList.dog")
 	public ModelAndView goodsCategoryList(HttpServletRequest request) throws Exception{
 		
@@ -53,7 +53,7 @@ public class GoodsController {
 		return mav;
 	}
 	
-	//goods View »ó¼¼º¸±â
+	//goods View ìƒì„¸ë³´ê¸°
 	@RequestMapping("goodsView.dog")
 	public ModelAndView goodsView(HttpServletRequest request) throws Exception{
 		

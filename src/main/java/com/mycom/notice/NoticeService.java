@@ -15,55 +15,55 @@ public class NoticeService implements NoticeDAO{
 	@Resource
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	//±Û¸ñ·Ï
+	//ê¸€ëª©ë¡
 	@Override
 	public List<NoticeModel> noticeList() {
 		return sqlSessionTemplate.selectList("notice.noticeList"); 
 	}
 
-	//±Û¾²±â
+	//ê¸€ì“°ê¸°
 	@Override
 	public int noticeWrite(NoticeModel noticeModel) {
 		return sqlSessionTemplate.insert("notice.noticeWrite", noticeModel);
 	}
 	
-	//±Û ÇÏ³ª ºÒ·¯¿À±â
+	//ê¸€ í•˜ë‚˜ ë¶ˆëŸ¬ì˜¤ê¸°
 	@Override
 	public NoticeModel noticeView(int no) {
 		return sqlSessionTemplate.selectOne("notice.noticeView",no); 
 	}
 	
-	//Á¶È¸¼ö Áõ°¡
+	//ì¡°íšŒìˆ˜ ì¦ê°€
 	@Override
 	public int noticeUpdateReadcount(int no) {
 		return sqlSessionTemplate.update("notice.noticeUpdateReadcount",no); 
 	}
 
-	//Á¦¸ñÀ¸·Î °Ë»ö
+	//ì œëª©ìœ¼ë¡œ ê²€ìƒ‰
 	@Override
 	public List<NoticeModel> noticeSearch0(String search) {
 		return sqlSessionTemplate.selectList("notice.noticeSearch0", "%"+search+"%"); 
 	}
 	
-	//³»¿ëÀ¸·Î °Ë»ö
+	//ë‚´ìš©ìœ¼ë¡œ ê²€ìƒ‰
 	@Override
 	public List<NoticeModel> noticeSearch1(String search) {
 		return sqlSessionTemplate.selectList("notice.noticeSearch1", "%"+search+"%"); 
 	}
 	
-	//ÀÛ¼ºÀÚ·Î °Ë»ö
+	//ì‘ì„±ìë¡œ ê²€ìƒ‰
 	@Override
 	public List<NoticeModel> noticeSearch2(String search) {
 		return sqlSessionTemplate.selectList("notice.noticeSearch2", "%"+search+"%"); 
 	}
 
-	//±Û¼öÁ¤
+	//ê¸€ìˆ˜ì •
 	@Override
 	public int noticeModify(NoticeModel noticeModel) {
 		return sqlSessionTemplate.update("notice.noticeModify",noticeModel); 
 	}
 
-	//±Û»èÁ¦
+	//ê¸€ì‚­ì œ
 	@Override
 	public int noticeDelete(int no) {
 		return sqlSessionTemplate.update("notice.noticeDelete",no); 

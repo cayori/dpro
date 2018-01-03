@@ -49,14 +49,14 @@
 </style>
 <div class="category_top">
 	<ul>
-	 	<li>°­¾ÆÁö ></li><li>ÁÖ¹®ÇÏ±â</li>			
+	 	<li>ê°•ì•„ì§€ ></li><li>ì£¼ë¬¸í•˜ê¸°</li>			
 	</ul>
 </div>
 
 <div class="basket_list">
 	<div class="basket_list_top">
-		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order.gif" alt="Àå¹Ù±¸´Ï"></h2>
-		<img style="width:1000px;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep2.gif" alt="step 01 Àå¹Ù±¸´Ï">
+		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order.gif" alt="ì¥ë°”êµ¬ë‹ˆ"></h2>
+		<img style="width:1000px;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep2.gif" alt="step 01 ì¥ë°”êµ¬ë‹ˆ">
 	</div>
 	<div class="basket_main">
 		<table class="basket" style="margin-bottom:15px;">
@@ -69,19 +69,19 @@
 				</colgroup>
 				<thead>
 					<tr>
-						<th scope="col">ÀÌ¹ÌÁö</th>
-						<th scope="col">»óÇ°¸í</th>
-						<th scope="col">´ÜÀÏ±İ¾×</th>
-						<th scope="col">¼ö·®</th>
-						<th scope="col">ÇÕ°è</th>
+						<th scope="col">ì´ë¯¸ì§€</th>
+						<th scope="col">ìƒí’ˆëª…</th>
+						<th scope="col">ë‹¨ì¼ê¸ˆì•¡</th>
+						<th scope="col">ìˆ˜ëŸ‰</th>
+						<th scope="col">í•©ê³„</th>
 					</tr>
 				</thead>				
 					<tr>
 						<td align="center"><img src="/pet/resources/goods_upload/${goodsModel.goods_image}" width="90" height="90"></td>
 						<td align="center">${goodsModel.goods_name}</td>
-						<td align="center"><fmt:formatNumber value="${goodsModel.goods_price}" type="number"/>¿ø</td>
+						<td align="center"><fmt:formatNumber value="${goodsModel.goods_price}" type="number"/>ì›</td>
 						<td align="center">${orderModel.order_goods_amount}EA</td>
-						<td align="center"><strong id="id2"><fmt:formatNumber value="${goodsModel.goods_price * orderModel.order_goods_amount}" type="number"/>¿ø</strong></td>						
+						<td align="center"><strong id="id2"><fmt:formatNumber value="${goodsModel.goods_price * orderModel.order_goods_amount}" type="number"/>ì›</strong></td>						
 						<%-- <c:set var= "sum" value="${sum + (basketList.basket_goods_price * basketList.basket_goods_amount)}"/> --%>
 					</tr>
 				
@@ -89,8 +89,8 @@
 				<tfoot>
 					<tr style="height:30px;">
 						<td colspan="6" style="background:#f6f6f6;border-top: 1px solid #e5e5e5; text-align:right;color:black;">
-							<strong style="float:left;color:#688abd;">&nbsp;&nbsp;&nbsp;[ ±âº»¹è¼Û ]</strong>
-							»óÇ°±¸¸Å±İ¾× <strong><fmt:formatNumber value="${goodsModel.goods_price * orderModel.order_goods_amount}" type="number"/> </strong> + ¹è¼Ûºñ <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">ÇÕ°è : <fmt:formatNumber value="${goodsModel.goods_price *orderModel.order_goods_amount}" type="number"/>¿ø </strong>&nbsp;&nbsp;&nbsp;
+							<strong style="float:left;color:#688abd;">&nbsp;&nbsp;&nbsp;[ ê¸°ë³¸ë°°ì†¡ ]</strong>
+							ìƒí’ˆêµ¬ë§¤ê¸ˆì•¡ <strong><fmt:formatNumber value="${goodsModel.goods_price * orderModel.order_goods_amount}" type="number"/> </strong> + ë°°ì†¡ë¹„ <strong>0</strong> = <strong style="color: #f8941d;font-size: 14px;">í•©ê³„ : <fmt:formatNumber value="${goodsModel.goods_price *orderModel.order_goods_amount}" type="number"/>ì› </strong>&nbsp;&nbsp;&nbsp;
 						</td>
 					</tr>
 				</tfoot>
@@ -103,36 +103,36 @@
 
 
 <div class="orderArea">
-	<h3>¹è¼ÛÁö Á¤º¸</h3>
+	<h3>ë°°ì†¡ì§€ ì •ë³´</h3>
 		<div class="boardWrite">
 			<table border="1" summary="">
-				<caption>¹è¼ÛÁö Á¤º¸</caption>
+				<caption>ë°°ì†¡ì§€ ì •ë³´</caption>
 				<tbody>
 					<tr>
-						<th scope="row">ÁÖ¼Ò</th>
+						<th scope="row">ì£¼ì†Œ</th>
 						<td>
 							${orderModel.order_receive_zipcode}<br>${orderModel.order_receive_addr}
 						</td>
 					</tr>
 					<tr>
-						<th scope="row">ÀÌ¸§</th>
+						<th scope="row">ì´ë¦„</th>
 						<td>${orderModel.order_receive_name}</td>
 					</tr>
 					<tr>
-						<th scope="row">ÈŞ´ëÆù</th>
+						<th scope="row">íœ´ëŒ€í°</th>
 						<td>${orderModel.order_receive_mobile}</td>						
 					</tr> 
 					<tr>
-						<th scope="row">¹è¼Û¿äÃ»»çÇ×</th>
+						<th scope="row">ë°°ì†¡ìš”ì²­ì‚¬í•­</th>
 						<td>
 							${orderModel.order_memo}</td>
 					</tr>
 					<tr>
-						<th scope="row">°áÀç¹æ½Ä</th>
+						<th scope="row">ê²°ì¬ë°©ì‹</th>
 						<td>${orderModel.order_trade_type}</td>
 					</tr>   
 					<tr>
-						<th scope="row">ÀÔ±İÁÖ¼Ò</th>
+						<th scope="row">ì…ê¸ˆì£¼ì†Œ</th>
 						<td>${orderModel.order_trade_payer}</td>
 					</tr>           
 				</tbody>

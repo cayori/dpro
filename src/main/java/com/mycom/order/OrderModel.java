@@ -5,9 +5,9 @@ import java.util.Date;
 public class OrderModel {
 
 			private int order_num;
-			private String order_trans_num; // ¼ÛÀå ¹øÈ£ ±âº»°ª-ÁØºñÁß
-			private int order_goods_num; //»óÇ°¹øÈ£
-			private String order_goods_name; //»óÇ° ÀÌ¸§
+			private String order_trans_num; // ì†¡ì¥ ë²ˆí˜¸ ê¸°ë³¸ê°’-ì¤€ë¹„ì¤‘
+			private int order_goods_num; //ìƒí’ˆë²ˆí˜¸
+			private String order_goods_name; //ìƒí’ˆ ì´ë¦„
 			private int order_goods_price; 
 			private int order_goods_amount;
 			private String order_member_id;
@@ -16,12 +16,12 @@ public class OrderModel {
 			private String order_receive_mobile;
 			private String order_receive_zipcode;
 			private String order_memo;
-			private int order_sum_money; //Æ÷¹®·ÎÁ÷Ã³¸®
-			private String order_trade_type; //°áÁ¦¹æ¹ı ¶óµğ¿À¹öÆ°
-			private Date order_trade_date;  //ÁÖ¹®³¯Â¥
-			private String order_trade_payer; //ÀÔ±İ°èÁÂ
-			private Date order_date; //°áÁ¦³¯Â¥
-			private String order_status; //ÁÖ¹®»óÅÂ ±âº»°ª ÀÔ±İÈ®ÀÎ
+			private int order_sum_money; //í¬ë¬¸ë¡œì§ì²˜ë¦¬
+			private String order_trade_type; //ê²°ì œë°©ë²• ë¼ë””ì˜¤ë²„íŠ¼
+			private Date order_trade_date;  //ì£¼ë¬¸ë‚ ì§œ
+			private String order_trade_payer; //ì…ê¸ˆê³„ì¢Œ
+			private Date order_date; //ê²°ì œë‚ ì§œ
+			private String order_status; //ì£¼ë¬¸ìƒíƒœ ê¸°ë³¸ê°’ ì…ê¸ˆí™•ì¸
 			private String order_goods_image;
 			private int order_trade_num;
 			

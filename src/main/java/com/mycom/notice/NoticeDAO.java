@@ -4,27 +4,27 @@ import java.util.List;
 
 public interface NoticeDAO {
 
-	//±Û¸ñ·Ï
+	//ê¸€ëª©ë¡
 	List<NoticeModel> noticeList();
 
-	//±Û¾²±â
+	//ê¸€ì“°ê¸°
 	int noticeWrite(NoticeModel noticeModel);
 
-	//±Û »ó¼¼º¸±â
+	//ê¸€ ìƒì„¸ë³´ê¸°
 	NoticeModel noticeView(int no);
 	
-	//Á¶È¸¼ö Áõ°¡
+	//ì¡°íšŒìˆ˜ ì¦ê°€
 	int noticeUpdateReadcount(int no);
 
-	//°Ë»ö (0=Á¦¸ñ, 1=³»¿ë, 2=ÀÌ¸§)
+	//ê²€ìƒ‰ (0=ì œëª©, 1=ë‚´ìš©, 2=ì´ë¦„)
 	List<NoticeModel> noticeSearch0(String search);
 	List<NoticeModel> noticeSearch1(String search);
 	List<NoticeModel> noticeSearch2(String search);
 	
-	//±Û¼öÁ¤
+	//ê¸€ìˆ˜ì •
 	int noticeModify(NoticeModel noticeModel);
 
-	//±Û»èÁ¦
+	//ê¸€ì‚­ì œ
 	int noticeDelete(int no);
 	
 }

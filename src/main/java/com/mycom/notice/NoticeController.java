@@ -27,7 +27,7 @@ public class NoticeController {
 	private int searchNum;
 	private String isSearch;
 	
-	//ÆäÀÌÂ¡À» À§ÇÑ º¯¼ö ¼³Á¤
+	//í˜ì´ì§•ì„ ìœ„í•œ ë³€ìˆ˜ ì„¤ì •
 	private int currentPage = 1;	 
 	private int totalCount; 		 
 	private int blockCount = 10;	 
@@ -35,7 +35,7 @@ public class NoticeController {
 	private String pagingHtml;  
 	private Paging page;
 
-	//¸®½ºÆ® Ã³¸®(°Ë»ö)
+	//ë¦¬ìŠ¤íŠ¸ ì²˜ë¦¬(ê²€ìƒ‰)
 	@RequestMapping(value="/notice/noticeList.dog", method=RequestMethod.GET)
 	public ModelAndView noticeList(HttpServletRequest request) throws UnsupportedEncodingException{
 		
@@ -108,7 +108,7 @@ public class NoticeController {
 		return mav;
 	}
 
-	//°øÁö»çÇ× »ó¼¼º¸±â
+	//ê³µì§€ì‚¬í•­ ìƒì„¸ë³´ê¸°
 	@RequestMapping("/notice/noticeView.dog")
 	public ModelAndView noticeView(HttpServletRequest request){
 		   
@@ -127,7 +127,7 @@ public class NoticeController {
 		return mav;
 	}
 	
-	//°øÁö»çÇ× ±Û¾²±â Æû
+	//ê³µì§€ì‚¬í•­ ê¸€ì“°ê¸° í¼
 	@RequestMapping(value="/notice/noticeWrite.dog", method=RequestMethod.GET)
 	public ModelAndView noticeForm(HttpServletRequest request) {
 		
@@ -137,7 +137,7 @@ public class NoticeController {
 		return mav;
 	}
 	
-	//°øÁö»çÇ× ±Û¾²±â
+	//ê³µì§€ì‚¬í•­ ê¸€ì“°ê¸°
 	@RequestMapping(value="/notice/noticeWrite.dog", method=RequestMethod.POST)
 	public ModelAndView noticeWrite(@ModelAttribute("noticeModel") NoticeModel noticeModel, BindingResult result, 
 			HttpServletRequest request, HttpSession session){
@@ -162,7 +162,7 @@ public class NoticeController {
 		return mav;
 	}
 	
-	//°øÁö»çÇ× »èÁ¦
+	//ê³µì§€ì‚¬í•­ ì‚­ì œ
 	@RequestMapping("/notice/noticeDelete.dog")
 	public ModelAndView noticeDelete(HttpServletRequest request){
 		
@@ -174,7 +174,7 @@ public class NoticeController {
 		return mav;	
 	}
 	
-	//°øÁö»çÇ× ¼öÁ¤Æû
+	//ê³µì§€ì‚¬í•­ ìˆ˜ì •í¼
 	@RequestMapping("/notice/noticeModify.dog")
 	public ModelAndView noticeModifyForm(@ModelAttribute("noticeModel") NoticeModel noticeModel, BindingResult result, HttpServletRequest request){
 		
@@ -190,7 +190,7 @@ public class NoticeController {
 		return mav;	
 	}
 	
-	//°øÁö»çÇ× ¼öÁ¤
+	//ê³µì§€ì‚¬í•­ ìˆ˜ì •
 	@RequestMapping("/notice/noticeModifySuccess.dog")
 	public ModelAndView noticeModify(@ModelAttribute("noticeModel") NoticeModel noticeModel, HttpServletRequest request){
 		

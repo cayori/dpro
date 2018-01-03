@@ -1,7 +1,7 @@
 package com.mycom.admin;
 
 /**
- * @author ¹ÚÁØ¿µ
+ * @author ë°•ì¤€ì˜
  * 
  * 
  * 
@@ -82,7 +82,7 @@ public class AdminController {
 	
 	String uploadPath = "E:\\app3\\d_pro\\src\\main\\webapp\\resources\\goods_upload\\";
 	
-	//ÆäÀÌÂ¡
+	//í˜ì´ì§•
 	private int searchNum;
 	private String isSearch;
 	
@@ -100,7 +100,7 @@ public class AdminController {
 		return "adminForm";
 	}
 	
-	//goods admin ¸®½ºÆ®
+	//goods admin ë¦¬ìŠ¤íŠ¸
 	@RequestMapping("goodsadminList.dog")
 	public ModelAndView goodsList(HttpServletRequest request) throws Exception{
 		
@@ -117,13 +117,13 @@ public class AdminController {
 		{
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
-			if(searchNum==0)//»óÇ°ÀÌ¸§
+			if(searchNum==0)//ìƒí’ˆì´ë¦„
 				goodslist = adminService.goodsSearch0(isSearch);
-			else if(searchNum == 1)//±Û¹øÈ£
+			else if(searchNum == 1)//ê¸€ë²ˆí˜¸
 				goodslist = adminService.goodsSearch1(isSearch);
-			else if(searchNum == 2)//Ä«Å×°í¸®
+			else if(searchNum == 2)//ì¹´í…Œê³ ë¦¬
 				goodslist = adminService.goodsSearch2(isSearch);
-			else if(searchNum == 3)//goods_best ½Å»ó, ÃßÃµ,º£½ºÆ®
+			else if(searchNum == 3)//goods_best ì‹ ìƒ, ì¶”ì²œ,ë² ìŠ¤íŠ¸
 				goodslist = adminService.goodsSearch3(isSearch);
 		
 			totalCount = goodslist.size();
@@ -170,7 +170,7 @@ public class AdminController {
 		return mav;
 	}
 	
-	//goods µî·ÏÈ­¸é
+	//goods ë“±ë¡í™”ë©´
 	@RequestMapping("goodsInsertForm.dog")
 	public ModelAndView goodsInsertForm(){
 		
@@ -179,14 +179,14 @@ public class AdminController {
 		return mav;
 	}
 	
-	//»óÇ° µî·ÏÇÏ±â
+	//ìƒí’ˆ ë“±ë¡í•˜ê¸°
 	 @RequestMapping(value="goodsInsert.dog")    
 	    public String insertGoods(MultipartHttpServletRequest multipartHttpServletRequest,GoodsModel GoodsModel) throws Exception {        
 	       
 	 
 	        System.out.println("UPLOAD_PATH : "+uploadPath);
 		        	
-        		//¸ŞÀÎ »óÇ°ÀÌ¹ÌÁö
+        		//ë©”ì¸ ìƒí’ˆì´ë¯¸ì§€
 	        	MultipartFile multipartFile = multipartHttpServletRequest.getFile("file[0]");
 	        	String filename = multipartFile.getOriginalFilename();
 		        	if (filename != ""){ 
@@ -208,7 +208,7 @@ public class AdminController {
 		        		GoodsModel.setGoods_contentimage("NULL");		
 		        	}
 		        	
-		      //delevimage ¹è¼Û ÀÌ¹ÌÁö
+		      //delevimage ë°°ì†¡ ì´ë¯¸ì§€
 		        MultipartFile multipartFile2 = multipartHttpServletRequest.getFile("file[2]");
 		        String filename2 = multipartFile2.getOriginalFilename();
 		        	if (filename2 != ""){
@@ -226,7 +226,7 @@ public class AdminController {
 	        return "redirect:goodsadminList.dog";
 	    }
 	 
-	 //»óÇ°¼öÁ¤ÇÏ±â Æû
+	 //ìƒí’ˆìˆ˜ì •í•˜ê¸° í¼
 	 @RequestMapping("goodsModifyForm.dog")
 		public ModelAndView noticeModifyForm(GoodsModel goodsModel, HttpServletRequest request){
 			
@@ -239,7 +239,7 @@ public class AdminController {
 			return mav;	
 		}
 	
-	 //»óÇ°¼öÁ¤
+	 //ìƒí’ˆìˆ˜ì •
 	 @RequestMapping("goodsModify.dog")
 		public ModelAndView goodsModify(GoodsModel GoodsModel, MultipartHttpServletRequest multipartHttpServletRequest){
 		
@@ -247,7 +247,7 @@ public class AdminController {
 	        System.out.println("UPLOAD_PATH : "+uploadPath);
 		    
 	        if (multipartHttpServletRequest.getFile("file[0]") != null){
-     		//¸ŞÀÎ »óÇ°ÀÌ¹ÌÁö
+     		//ë©”ì¸ ìƒí’ˆì´ë¯¸ì§€
 	        	MultipartFile multipartFile = multipartHttpServletRequest.getFile("file[0]");
 	        	String filename = multipartFile.getOriginalFilename();
 		        	if (filename != ""){ 
@@ -289,7 +289,7 @@ public class AdminController {
 	        }
 	        
 	        if (multipartHttpServletRequest.getFile("file[2]") != null){
-		      //delevimage ¹è¼Û ÀÌ¹ÌÁö
+		      //delevimage ë°°ì†¡ ì´ë¯¸ì§€
 		        MultipartFile multipartFile2 = multipartHttpServletRequest.getFile("file[2]");
 		        String filename2 = multipartFile2.getOriginalFilename();
 		        	if (filename2 != ""){
@@ -312,7 +312,7 @@ public class AdminController {
   			mav.setViewName("redirect:goodsadminList.dog");
   			return mav;
 		}
-	 //»óÇ°»èÁ¦ÇÏ±â
+	 //ìƒí’ˆì‚­ì œí•˜ê¸°
 	 @RequestMapping("goodsDelete.dog")
 		public ModelAndView goodsDelete(HttpServletRequest request, GoodsModel GoodsModel){
 		 int goods_num = Integer.parseInt(request.getParameter("goods_num"));
@@ -327,25 +327,25 @@ public class AdminController {
 		 System.out.println(f.isFile());
 		 if(f.exists()){
 			 f.delete();
-			 System.out.println("goods_image ÆÄÀÏ »èÁ¦");
+			 System.out.println("goods_image íŒŒì¼ ì‚­ì œ");
 		 }else{
-			 System.out.println("goods_image ÆÄÀÏ¾øÀ½");
+			 System.out.println("goods_image íŒŒì¼ì—†ìŒ");
 		 }
 		 
 		 f = new File(uploadPath + filename1);
 		 if(f.exists()){
 			 f.delete();
-			 System.out.println("getGoods_contentimage ÆÄÀÏ »èÁ¦");
+			 System.out.println("getGoods_contentimage íŒŒì¼ ì‚­ì œ");
 		 }else{
-			 System.out.println("getGoods_contentimage ÆÄÀÏ¾øÀ½");
+			 System.out.println("getGoods_contentimage íŒŒì¼ì—†ìŒ");
 		 }
 		 
 		 f = new File(uploadPath + filename2);
 		 if(f.exists()){
 			 f.delete();
-			 System.out.println("getGoods_delevimage ÆÄÀÏ »èÁ¦");
+			 System.out.println("getGoods_delevimage íŒŒì¼ ì‚­ì œ");
 		 }else{
-			 System.out.println("getGoods_delevimage ÆÄÀÏ¾øÀ½");
+			 System.out.println("getGoods_delevimage íŒŒì¼ì—†ìŒ");
 		 }
 		 
 		 
@@ -355,7 +355,7 @@ public class AdminController {
 		 return mav;	
 	}
 	 
-	 //È¸¿ø¸ñ·Ï
+	 //íšŒì›ëª©ë¡
 		@RequestMapping("memberadminList.dog")
 		public ModelAndView memberList(HttpServletRequest request) throws Exception{
 			
@@ -372,7 +372,7 @@ public class AdminController {
 			{
 				searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
-				if(searchNum==0)//»óÇ°ÀÌ¸§
+				if(searchNum==0)//ìƒí’ˆì´ë¦„
 					memberlist = adminService.memberSearch0(isSearch);
 			
 				totalCount = memberlist.size();
@@ -419,7 +419,7 @@ public class AdminController {
 			return mav;
 		}
 		
-		//È¸¿ø»èÁ¦ÇÏ±â
+		//íšŒì›ì‚­ì œí•˜ê¸°
 		 @RequestMapping("adminMemberDelete.dog")
 			public ModelAndView memberDelete(HttpServletRequest request){		
 			 String id = request.getParameter("id");
@@ -429,8 +429,8 @@ public class AdminController {
 			 return mav;	
 		}
 		 
-		//È¸¿ø 1¸í View »ó¼¼º¸±â
-		// È¸¿øÁ¤º¸¼öÁ¤
+		//íšŒì› 1ëª… View ìƒì„¸ë³´ê¸°
+		// íšŒì›ì •ë³´ìˆ˜ì •
 	  	@RequestMapping("adminmemberModify.dog")
 	  	public ModelAndView memberModify(MemberModel member, HttpServletRequest request) {		  		 		
 	  		
@@ -441,11 +441,11 @@ public class AdminController {
   			return mav;
 	  	}
 	  	
-	  	//È¸¿ø¼öÁ¤ µî·Ï
+	  	//íšŒì›ìˆ˜ì • ë“±ë¡
 	    @RequestMapping("adminmemberModifyEnd.dog")
   		public ModelAndView adminmemberModifyEnd(MemberModel member) {
   		
-		System.out.println("¼öÁ¤½ÃÀÛ");
+		System.out.println("ìˆ˜ì •ì‹œì‘");
 		
   			adminService.adminmemberModify(member);
   			mav.setViewName("redirect:memberadminList.dog");
@@ -453,7 +453,7 @@ public class AdminController {
 	    }
 	    
 	    
-	    //ÁÖ¹®¸®½ºÆ®
+	    //ì£¼ë¬¸ë¦¬ìŠ¤íŠ¸
 	    @RequestMapping("adminOrderAllList.dog")
 		public ModelAndView OrderList(HttpServletRequest request) throws Exception{
 			
@@ -473,11 +473,11 @@ public class AdminController {
 			{
 				searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
-				if(searchNum==0)//ÀüÃ¼
+				if(searchNum==0)//ì „ì²´
 					orderlist = adminService.orderSearch0(isSearch);
-				else if(searchNum==1)//°áÀç¹æ½Ä
+				else if(searchNum==1)//ê²°ì¬ë°©ì‹
 					orderlist = adminService.orderSearch1(isSearch);
-				else if(searchNum==2)//ÁÖ¹®»óÅÂ
+				else if(searchNum==2)//ì£¼ë¬¸ìƒíƒœ
 					orderlist = adminService.orderSearch2(isSearch);
 			
 				totalCount = orderlist.size();
@@ -524,7 +524,7 @@ public class AdminController {
 			return mav;
 		}
 	    
-	  //ÁÖ¹® ¼öÁ¤ÇÏ±â Æû
+	  //ì£¼ë¬¸ ìˆ˜ì •í•˜ê¸° í¼
 		 @RequestMapping("orderModifyForm.dog")
 		public ModelAndView orderModifyForm(OrderModel orderModel, HttpServletRequest request){
 			
@@ -536,7 +536,7 @@ public class AdminController {
 			
 			return mav;	
 		}
-		// ÁÖ¹®¼öÁ¤
+		// ì£¼ë¬¸ìˆ˜ì •
 		  	@RequestMapping("orderModify.dog")
 		  	public ModelAndView orderModify(OrderModel OrderModel, HttpServletRequest request) {		  		 		
 		  		
@@ -549,14 +549,14 @@ public class AdminController {
 		  	}
 		  	/*public ModelAndView adminmemberModifyEnd(MemberModel member) {
 		  		
-				System.out.println("¼öÁ¤½ÃÀÛ");
+				System.out.println("ìˆ˜ì •ì‹œì‘");
 				
 		  			adminService.adminmemberModify(member);
 		  			mav.setViewName("redirect:memberadminList.dog");
 		  			return mav;
 			    }*/
 	    
-	  //ÁÖ¹®¸ñ·Ï »èÁ¦
+	  //ì£¼ë¬¸ëª©ë¡ ì‚­ì œ
         @RequestMapping(value="orderadmindelete.dog")
         public ModelAndView orderdelete(HttpServletRequest request, OrderModel orderModel){
         	
@@ -568,8 +568,8 @@ public class AdminController {
         
         
         
-       //°Ô½ÃÆÇ°ü¸®/////////////////////////////////
-       //°øÁö»çÇ×//
+       //ê²Œì‹œíŒê´€ë¦¬/////////////////////////////////
+       //ê³µì§€ì‚¬í•­//
         @RequestMapping(value="adminnoticeList.dog", method=RequestMethod.GET)
     	public ModelAndView noticeList(HttpServletRequest request){
     		
@@ -638,7 +638,7 @@ public class AdminController {
     		return mav;
     	}
         
-        //°øÁö»çÇ×»èÁ¦
+        //ê³µì§€ì‚¬í•­ì‚­ì œ
         @RequestMapping("adminnoticeDelete.dog")
     	public ModelAndView noticeDelete(HttpServletRequest request){
     		
@@ -650,7 +650,7 @@ public class AdminController {
     		return mav;	
     	}
         
-        //¸¶ÀÌÆê¸®½ºÆ®
+        //ë§ˆì´í«ë¦¬ìŠ¤íŠ¸
         @RequestMapping("adminpet_imgList.dog")
     	public String pet_imgList(Model model,Pet_imgModel pet_imgModel, HttpServletRequest request ){
     		
@@ -728,7 +728,7 @@ public class AdminController {
     		return "adminpet_imgList";
     	}
         
-        //¸¶ÀÌÆê »èÁ¦
+        //ë§ˆì´í« ì‚­ì œ
         @RequestMapping("adminpet_imgDelete.dog")
     	public ModelAndView pet_imgDelete(HttpServletRequest request, Pet_imgModel pet_imgModel ){
     	
@@ -743,7 +743,7 @@ public class AdminController {
         }
         
         
-        //ºĞ¾ç°Ô½ÃÆÇ ¸®½ºÆ®
+        //ë¶„ì–‘ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸
         @RequestMapping(value="adminpetList.dog")
     	public String petList(Model model,PetModel petModel, HttpServletRequest request ){
     		
@@ -822,7 +822,7 @@ public class AdminController {
     		
     		return "adminpetList";
     	}
-        //ºĞ¾ç°Ô½ÃÆÇ »èÁ¦
+        //ë¶„ì–‘ê²Œì‹œíŒ ì‚­ì œ
         @RequestMapping("adminpetDelete.dog")
     	public ModelAndView petDelete(HttpServletRequest request, PetModel petModel ){
     	
@@ -835,7 +835,7 @@ public class AdminController {
     		return mav;
     	
       }
-        //Qna¸®½ºÆ®
+        //Qnaë¦¬ìŠ¤íŠ¸
         @RequestMapping(value="adminQnAList.dog")
     	public ModelAndView qnaList(HttpServletRequest request, QnAModel qnaModel){
     		ModelAndView mav = new ModelAndView();
@@ -893,7 +893,7 @@ public class AdminController {
     		return mav;
     	}
         
-        //qna»èÁ¦
+        //qnaì‚­ì œ
         @RequestMapping(value="adminQnADelete.dog")
     	public ModelAndView qnaDelete(HttpServletRequest request, QnAModel qnaModel){			   
     			ModelAndView mav = new ModelAndView();
@@ -906,7 +906,7 @@ public class AdminController {
     			return mav;
     	}
         
-        //±¸¸ÅÈÄ±â ¸®½ºÆ®
+        //êµ¬ë§¤í›„ê¸° ë¦¬ìŠ¤íŠ¸
     	@RequestMapping(value="adminreviewList.dog")
     	public ModelAndView reviewList(HttpServletRequest request){
     		
@@ -976,7 +976,7 @@ public class AdminController {
     		return mav;
     	}
     	
-    	//±¸¸ÅÈÄ±â »èÁ¦
+    	//êµ¬ë§¤í›„ê¸° ì‚­ì œ
     	@RequestMapping("adminreviewDelete.dog")
     	public ModelAndView reviewDelete(HttpServletRequest request){
     		

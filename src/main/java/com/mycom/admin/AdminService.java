@@ -25,17 +25,17 @@ public class AdminService implements AdminDao{
 		return sqlSessionTemplate.insert("goods.insertGoods", GoodsModel);
 		
 	}
-	//»óÇ°ÀÌ¸§À¸·Î °Ë»ö
+	//ìƒí’ˆì´ë¦„ìœ¼ë¡œ ê²€ìƒ‰
 	@Override
 	public List<GoodsModel> goodsSearch0(String search) {
 		return sqlSessionTemplate.selectList("goods.goodsSearch0", "%"+search+"%"); 
 	}
-	//»óÇ°¹øÈ£·Î °Ë»ö
+	//ìƒí’ˆë²ˆí˜¸ë¡œ ê²€ìƒ‰
 	@Override
 	public List<GoodsModel> goodsSearch1(String search) {
 		return sqlSessionTemplate.selectList("goods.goodsSearch1", "%"+search+"%"); 
 	}
-	//Ä«Å×°í¸®·Î°Ë»ö
+	//ì¹´í…Œê³ ë¦¬ë¡œê²€ìƒ‰
 	@Override
 	public List<GoodsModel> goodsSearch2(String search) {
 		return sqlSessionTemplate.selectList("goods.goodsSearch2", "%"+search+"%"); 
@@ -46,72 +46,72 @@ public class AdminService implements AdminDao{
 	}
 
 
-	//±Û»èÁ¦
+	//ê¸€ì‚­ì œ
 	@Override
 	public int goodsDelete(int goods_num) {
 		return sqlSessionTemplate.delete("goods.goodsDelete",goods_num); 
 	}
 	
-	//±Û¼öÁ¤
+	//ê¸€ìˆ˜ì •
 	@Override
 	public int goodsModify(GoodsModel GoodsModel) {
 		return sqlSessionTemplate.update("goods.goodsModify",GoodsModel); 
 	}
-	//±Û ÇÏ³ª ºÒ·¯¿À±â
+	//ê¸€ í•˜ë‚˜ ë¶ˆëŸ¬ì˜¤ê¸°
 	@Override
 	public GoodsModel goodsAdminView(int goods_num){
 		return sqlSessionTemplate.selectOne("goods.selectOne-goods",goods_num);
 	}
 	
-	//È¸¿ø¸ñ·Ï Ãâ·Â
+	//íšŒì›ëª©ë¡ ì¶œë ¥
 	@Override
 	public List<MemberModel> memberList() {
 		return sqlSessionTemplate.selectList("member.memberList");
 	}
 	
-	//È¸¿øÀÌ¸§À¸·Î °Ë»ö
+	//íšŒì›ì´ë¦„ìœ¼ë¡œ ê²€ìƒ‰
 	@Override
 	public List<MemberModel> memberSearch0(String search) {
 		return sqlSessionTemplate.selectList("member.memberSearch0", "%"+search+"%"); 
 	}
 	
-	//È¸¿ø»èÁ¦
+	//íšŒì›ì‚­ì œ
 	@Override
 	public int memberDelete(String id) {
 		return sqlSessionTemplate.delete("member.deleteMember",id);
 	}
 	
-	//È¸¿ø¼öÁ¤ÇÏ±â
+	//íšŒì›ìˆ˜ì •í•˜ê¸°
 	@Override
 	public Object adminmemberModify(MemberModel member) {
 		return sqlSessionTemplate.update("member.adminupdateMember", member);
 	}
-	//ÁÖ¹®¸ğµç¸®½ºÆ®
+	//ì£¼ë¬¸ëª¨ë“ ë¦¬ìŠ¤íŠ¸
 	@Override
 	public List<OrderModel> orderAllList() {
 		return sqlSessionTemplate.selectList("order.orderAllList");
 	}
 	
-	//ÁÖ¹®¼öÁ¤ÇÏ±â
+	//ì£¼ë¬¸ìˆ˜ì •í•˜ê¸°
 	@Override
 	public Object orderModify(OrderModel OrderModel) {
 		return sqlSessionTemplate.update("order.orderModify", OrderModel);
 	}
 	
-	//ÀüÃ¼ °Ë»ö
+	//ì „ì²´ ê²€ìƒ‰
 	@Override
 	public List<OrderModel> orderSearch0(String search) {
 		return sqlSessionTemplate.selectList("order.orderSearch0", "%"+search+"%"); 
 	}
 	
-	//°áÀç¹æ½Ä
+	//ê²°ì¬ë°©ì‹
 	@Override
 	public List<OrderModel> orderSearch1(String search) {
 		return sqlSessionTemplate.selectList("order.orderSearch1", "%"+search+"%"); 
 	}
 	
 	
-	//ÁÖ¹®»óÅÂ
+	//ì£¼ë¬¸ìƒíƒœ
 	@Override
 	public List<OrderModel> orderSearch2(String search) {
 		return sqlSessionTemplate.selectList("order.orderSearch2", "%"+search+"%"); 

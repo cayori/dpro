@@ -29,7 +29,7 @@ public interface Pet_imgDao {
 
 	public Object readhit(int pet_img_no);
 	
-	//°Ë»ö (0=Á¦¸ñ, 1=³»¿ë, 2=ÀÌ¸§)
+	//ê²€ìƒ‰ (0=ì œëª©, 1=ë‚´ìš©, 2=ì´ë¦„)
 	public List<Pet_imgModel> pet_imgSearch0(String search);
 	public List<Pet_imgModel> pet_imgSearch1(String search);
 	public List<Pet_imgModel> pet_imgSearch2(String search);

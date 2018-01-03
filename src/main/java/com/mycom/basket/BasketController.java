@@ -30,7 +30,7 @@ public class BasketController {
 	
 	
 	
-	/*Àå¹Ù±¸´Ï¿¡ Ãß°¡*/
+	/*ì¥ë°”êµ¬ë‹ˆì— ì¶”ê°€*/
 	@RequestMapping(value="goods/basketAdd.dog")
 	public ModelAndView basketAdd(HttpServletRequest request, GoodsModel goodsModel){
 		
@@ -62,7 +62,7 @@ public class BasketController {
 	}
 
 	
-	/*Àå¹Ù±¸´Ï ¸®½ºÆ®*/
+	/*ì¥ë°”êµ¬ë‹ˆ ë¦¬ìŠ¤íŠ¸*/
 	@RequestMapping(value="basket/basketList.dog")
 	public ModelAndView basketList(HttpServletRequest request, HttpSession session){
 		
@@ -88,7 +88,7 @@ public class BasketController {
 	}
 	
 	
-	/*Àå¹Ù±¸´Ï »èÁ¦*/
+	/*ì¥ë°”êµ¬ë‹ˆ ì‚­ì œ*/
 	@RequestMapping(value="basket/basketdelete.dog")
 	public ModelAndView deleteBasket(HttpServletRequest request, BasketModel basketModel){
 		

@@ -190,9 +190,9 @@ public class Pet_imgController {
 		String fileType = fileName.substring(fileName.lastIndexOf("."), fileName.length());
 		String replaceName = cal.getTimeInMillis() + fileType;  
 		
-		//¼­¹ö¿¡ ¿Ã¸®±â
+		//ì„œë²„ì— ì˜¬ë¦¬ê¸°
 		String path = request.getSession().getServletContext().getRealPath("/")+File.separator+"resources/pet_img_upload";
-		//ÇÇ½Ã¿¡ ¿Ã¸®±â
+		//í”¼ì‹œì— ì˜¬ë¦¬ê¸°
 		/*String path = "C:\\Users\\gram\\workspace2\\d_pro\\src\\main\\webapp\\resources\\pet_img_upload\\";*/
 		
 		FileUpload.fileUpload(imgfile, path, replaceName);

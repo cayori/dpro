@@ -5,57 +5,57 @@ import java.util.List;
 
 public interface QnADao {
 	
-		//±Û¸ñ·Ï
+		//ê¸€ëª©ë¡
 		List<QnAModel> QnAList();
 		
-		//±Û¾²±â
+		//ê¸€ì“°ê¸°
 		int qnaWrite(QnAModel QnAmodel);
 
-		//±Û »ó¼¼º¸±â
+		//ê¸€ ìƒì„¸ë³´ê¸°
 		QnAModel QnAView(int no);
 		
-		//Á¶È¸¼ö Áõ°¡
+		//ì¡°íšŒìˆ˜ ì¦ê°€
 		int QnAUpdateReadcount(int no);
 		
-		//±Û»èÁ¦
+		//ê¸€ì‚­ì œ
 		int QnADelete(int no);
 		
-		//±Û¼öÁ¤
+		//ê¸€ìˆ˜ì •
 		int QnAModify(QnAModel QnAmodel);
 		
-		//´ñ±Û¸ñ·Ï
+		//ëŒ“ê¸€ëª©ë¡
 		List<QnAcommModel> QnAcommList(int no);
 		
-		//´ñ±Û¾²±â
+		//ëŒ“ê¸€ì“°ê¸°
 		int QnAcommWrite(QnAcommModel QnAcommModel);
 	
-		//´ñ±Û»èÁ¦
+		//ëŒ“ê¸€ì‚­ì œ
 		int QnAcommDelete(QnAcommModel QnAcommModel);
 		
-		//´ñ±Û ¸ğµÎ »èÁ¦
+		//ëŒ“ê¸€ ëª¨ë‘ ì‚­ì œ
 		int QnAallcommDelete(int no);
 		
-		//´ñ±Û ÃÑ °³¼ö
+		//ëŒ“ê¸€ ì´ ê°œìˆ˜
 		int QnAcommCount(int no);
 		
-		//´ñ±Û 1 »ó½Â
+		//ëŒ“ê¸€ 1 ìƒìŠ¹
 		int QnAcommUpdate1(int no);
 		
-		//´ñ±Û 1 ÇÏ¶ô
+		//ëŒ“ê¸€ 1 í•˜ë½
 		int QnAcommUpdate2(int no);
 		
-		//°Ë»ö (0=Á¦¸ñ, 1=³»¿ë, 2=ÀÌ¸§)
+		//ê²€ìƒ‰ (0=ì œëª©, 1=ë‚´ìš©, 2=ì´ë¦„)
 		List<QnAModel> QnASearch0(String search);
 		List<QnAModel> QnASearch1(String search);
 		List<QnAModel> QnASearch2(String search);
 		
-		//´äº¯À¯¹« °Ë»ö(1=´äº¯¿Ï·á, 2=´äº¯Àü)
+		//ë‹µë³€ìœ ë¬´ ê²€ìƒ‰(1=ë‹µë³€ì™„ë£Œ, 2=ë‹µë³€ì „)
 		List<QnAModel> QnAreply1();
 		List<QnAModel> QnAreply2();
 	
-		//°ü¸®ÀÚ ´ñ±Û +1
+		//ê´€ë¦¬ì ëŒ“ê¸€ +1
 		int AdminupdateReply(int no);
 		
-		//°ü¸®ÀÚ ´ñ±Û -1
+		//ê´€ë¦¬ì ëŒ“ê¸€ -1
 		int AdmindeleteReply(int no);
 }

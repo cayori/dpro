@@ -23,7 +23,7 @@ public class mainController {
 	@RequestMapping(value="/main.dog")
 	public ModelAndView mainForm(){
 		
-		//goods »óÇ°±¸ºĞ ±âº»=0, ÃßÃµ=1, º£½ºÆ®=2, ½Å»ó=3¿¡ µû¶ó ±¸ºĞ ¸ŞÀÎÆäÀÌÁö ³ëÃâ
+		//goods ìƒí’ˆêµ¬ë¶„ ê¸°ë³¸=0, ì¶”ì²œ=1, ë² ìŠ¤íŠ¸=2, ì‹ ìƒ=3ì— ë”°ë¼ êµ¬ë¶„ ë©”ì¸í˜ì´ì§€ ë…¸ì¶œ
 		List<GoodsModel> goodsSelectList1 = goodsService.goodsSelectList1("1");
 		List<GoodsModel> goodsSelectList2 = goodsService.goodsSelectList1("2");
 		List<GoodsModel> goodsSelectList3 = goodsService.goodsSelectList1("3");

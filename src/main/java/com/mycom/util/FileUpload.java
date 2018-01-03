@@ -17,7 +17,7 @@ public class FileUpload {
 		String contentType = fileData.getContentType();
 		long fileSize = fileData.getSize();
 		
-		//ÀÌ¹ÌÁö ¾÷·Îµå ÆĞ½º È®ÀÎ
+		//ì´ë¯¸ì§€ ì—…ë¡œë“œ íŒ¨ìŠ¤ í™•ì¸
 		/*System.out.println("file Info");
 		System.out.println("fileName " + fileName);
 		System.out.println("originalFileName :" + originalFileName);
@@ -36,11 +36,11 @@ public class FileUpload {
 				out = new FileOutputStream(path +"/"+ fileName);
 				FileCopyUtils.copy(is, out);
 			}else{
-				new IOException("Àß¸øµÈ ÆÄÀÏÀ» ¾÷·Îµå ÇÏ¼Ì½À´Ï´Ù.");
+				new IOException("ì˜ëª»ëœ íŒŒì¼ì„ ì—…ë¡œë“œ í•˜ì…¨ìŠµë‹ˆë‹¤.");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-			new IOException("ÆÄÀÏ ¾÷·Îµå¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			new IOException("íŒŒì¼ ì—…ë¡œë“œì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}finally{
 			if(out != null){out.close();}
 			if(is != null){is.close();}

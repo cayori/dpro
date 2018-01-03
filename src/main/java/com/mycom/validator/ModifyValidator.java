@@ -11,17 +11,17 @@ public class ModifyValidator implements Validator {
 	@Override
 	public boolean supports(Class<?> clazz) {
 		
-		// À¯È¿¼º°Ë»çÇÏ·Á´Â modelÀÌ Validation°¡´ÉÇÑÁö ¿©ºÎ¸¦ È®ÀÎÇÏ°í °¡´ÉÇÏ¸é °Ë»ç½ÃÀÛ
+		// ìœ íš¨ì„±ê²€ì‚¬í•˜ë ¤ëŠ” modelì´ Validationê°€ëŠ¥í•œì§€ ì—¬ë¶€ë¥¼ í™•ì¸í•˜ê³  ê°€ëŠ¥í•˜ë©´ ê²€ì‚¬ì‹œì‘
 		return MemberModel.class.isAssignableFrom(clazz);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
-		// memberModelÀ» À¯È¿¼º°Ë»çÇÏ´Â Å¸°ÙÀ¸·Î ÀâÀ½
+		// memberModelì„ ìœ íš¨ì„±ê²€ì‚¬í•˜ëŠ” íƒ€ê²Ÿìœ¼ë¡œ ì¡ìŒ
 		MemberModel member = (MemberModel) target;
 		
-		// ValidationUtils Å¬·¡½º¸¦ »ç¿ëÇÏÁö ¾Ê°í À¯È¿¼º °Ë»çÇÏ´Â ´Ù¸¥¹æ¹ı
+		// ValidationUtils í´ë˜ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šê³  ìœ íš¨ì„± ê²€ì‚¬í•˜ëŠ” ë‹¤ë¥¸ë°©ë²•
 		
 		/*if(member.getId() == null || member.getId().trim().isEmpty()) {
 			errors.rejectValue("id", "id");
@@ -44,8 +44,8 @@ public class ModifyValidator implements Validator {
 		}*/
 		
 		// rejectIfEmptyOrWhitespace(errors, "1", "2");
-		// "1" = °Ë»çÇÒ °´Ã¼ , "2" = ¿¡·¯°¡³ª¸é ¶ã ¹®±¸ (properties¿¡ µî·ÏÇÑ º¯¼ö)
-		// "1"ÀÌ ¾ø°Å³ª °ø¹éÀ» »«ºÎºĞÀÌ ºñ¾îÀÖÀ¸¸é "2"·Î ¿¡·¯¸Ş½ÃÁö¸¦ ³»º¸³½´Ù.
+		// "1" = ê²€ì‚¬í•  ê°ì²´ , "2" = ì—ëŸ¬ê°€ë‚˜ë©´ ëœ° ë¬¸êµ¬ (propertiesì— ë“±ë¡í•œ ë³€ìˆ˜)
+		// "1"ì´ ì—†ê±°ë‚˜ ê³µë°±ì„ ëº€ë¶€ë¶„ì´ ë¹„ì–´ìˆìœ¼ë©´ "2"ë¡œ ì—ëŸ¬ë©”ì‹œì§€ë¥¼ ë‚´ë³´ë‚¸ë‹¤.
 		// <form:input type="text" path="1">
 		// <form:errors path="2">
 	

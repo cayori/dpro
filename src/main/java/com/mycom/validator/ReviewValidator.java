@@ -17,7 +17,7 @@ public class ReviewValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		// memberModelÀ» À¯È¿¼º°Ë»çÇÏ´Â Å¸°ÙÀ¸·Î ÀâÀ½
+		// memberModelì„ ìœ íš¨ì„±ê²€ì‚¬í•˜ëŠ” íƒ€ê²Ÿìœ¼ë¡œ ì¡ìŒ
 		ReviewModel review = (ReviewModel) target;
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "subject", "subject");

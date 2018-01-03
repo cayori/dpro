@@ -34,13 +34,13 @@ public class MemberController {
    private List<ZipcodeModel> zipcodeList = new ArrayList<ZipcodeModel>();
    
    
-   //·Î±×ÀÎ Æû
+   //ë¡œê·¸ì¸ í¼
    @RequestMapping(value="/login.dog", method=RequestMethod.GET)
    public String loginForm() {
       return "loginForm";
    }
 
-   //·Î±×ÀÎµ¿ÀÛ ¹× ¼¼¼Ç »ı¼º
+   //ë¡œê·¸ì¸ë™ì‘ ë° ì„¸ì…˜ ìƒì„±
    @RequestMapping(value="/login.dog", method=RequestMethod.POST)
    public ModelAndView memberLogin(HttpServletRequest request, MemberModel mem) {
 
@@ -62,7 +62,7 @@ public class MemberController {
          return mav;
       }
       
-      //System.out.println("·Î±×ÀÎ ½ÇÆĞ");         
+      //System.out.println("ë¡œê·¸ì¸ ì‹¤íŒ¨");         
       mav.setViewName("member/loginError");
       return mav;
          
@@ -85,7 +85,7 @@ public class MemberController {
    }
    
    
-   //À¯È¿¼º°Ë»çÇßÀ»¶§ ¿¡·¯ÀÖÀ»½Ã ³Ñ¾î°¡°Ô²û ÇØÁà¾ßÇÔ
+   //ìœ íš¨ì„±ê²€ì‚¬í–ˆì„ë•Œ ì—ëŸ¬ìˆì„ì‹œ ë„˜ì–´ê°€ê²Œë” í•´ì¤˜ì•¼í•¨
       @ModelAttribute("member")
       public MemberModel formBack() {
          return new MemberModel();
@@ -106,12 +106,12 @@ public class MemberController {
       public ModelAndView memberStep3(@ModelAttribute("member") MemberModel member,
                               BindingResult result) {
          
-         //<form:form commandName="member"> °Ë»çÇÒ modelÀ» ¿µ¿ª¿¡ ¿Ã·ÁÁØ ÀÌ¸§°ú µ¿ÀÏÇÏ°ÔÇÑ´Ù.
+         //<form:form commandName="member"> ê²€ì‚¬í•  modelì„ ì˜ì—­ì— ì˜¬ë ¤ì¤€ ì´ë¦„ê³¼ ë™ì¼í•˜ê²Œí•œë‹¤.
          
          // Validation Binding
          new MemberValidator().validate(member, result);
          
-         // ¿¡·¯°¡ÀÖÀ¸¸é È¸¿ø°¡ÀÔÆûÀ¸·Î ³Ñ¾î°¨
+         // ì—ëŸ¬ê°€ìˆìœ¼ë©´ íšŒì›ê°€ì…í¼ìœ¼ë¡œ ë„˜ì–´ê°
          if(result.hasErrors()) {
         	 
         	ModelAndView mav = new ModelAndView();
@@ -120,7 +120,7 @@ public class MemberController {
             return mav;
          }
          try {
-            // À¯È¿¼º°Ë»ç¿¡ Åë°úÇÏ¸é È¸¿ø°¡ÀÔ
+            // ìœ íš¨ì„±ê²€ì‚¬ì— í†µê³¼í•˜ë©´ íšŒì›ê°€ì…
         	member.setAddr(member.getAddr()+" " + member.getAddr2());
             
             memberService.insertMember(member);
@@ -128,9 +128,9 @@ public class MemberController {
             mav.setViewName("memberEnd");
             return mav;
          } catch (DuplicateKeyException e) {
-            // db¿¡¼­ idÀÇ Á¦¾àÁ¶°ÇÀ» unique·Î ¹Ù²å±â ¶§¹®¿¡ Áßº¹µÈ ¾ÆÀÌµğ·Î °¡ÀÔÇÏ·ÁÇÏ¸é DuplicateKeyExceptionÀÌ ¶ß°ÔµÇ°í
-            // ¿¹¿ÜÃ³¸®·Î propertiesÆÄÀÏ¿¡ µî·ÏµÈ "invalid"ÀÇ ³»¿ëÀÌ ³ª¿À°Ô ¸¸µé°í È¸¿ø°¡ÀÔÆûÀ¸·Î µ¹¾Æ°¡°ÔÇßÀ½.
-            // ¾ÆÀÌµğ Áßº¹°Ë»ç
+            // dbì—ì„œ idì˜ ì œì•½ì¡°ê±´ì„ uniqueë¡œ ë°”ê¿¨ê¸° ë•Œë¬¸ì— ì¤‘ë³µëœ ì•„ì´ë””ë¡œ ê°€ì…í•˜ë ¤í•˜ë©´ DuplicateKeyExceptionì´ ëœ¨ê²Œë˜ê³ 
+            // ì˜ˆì™¸ì²˜ë¦¬ë¡œ propertiesíŒŒì¼ì— ë“±ë¡ëœ "invalid"ì˜ ë‚´ìš©ì´ ë‚˜ì˜¤ê²Œ ë§Œë“¤ê³  íšŒì›ê°€ì…í¼ìœ¼ë¡œ ëŒì•„ê°€ê²Œí–ˆìŒ.
+            // ì•„ì´ë”” ì¤‘ë³µê²€ì‚¬
             result.reject("invalid", null);
             mav.setViewName("member");
             return mav;
@@ -152,20 +152,20 @@ public class MemberController {
 
   		member = memberService.idFindByName(member);
   		if (member == null) {
-  			memberFindChk = 0; // °¡ÀÔµÇ¾î ÀÖ´Â »ç¶÷ X;
+  			memberFindChk = 0; // ê°€ì…ë˜ì–´ ìˆëŠ” ì‚¬ëŒ X;
   			mav.addObject("memberFindChk", memberFindChk);
   			mav.setViewName("member/idFindError");
   			return mav;
 
   		} else {
   			if (member.getName().equals(member.getName()) && member.getEmail().equals(member.getEmail())) {
-  				memberFindChk = 1; // È¸¿ø°¡ÀÔµÇ¾î ÀÖÀ½, ÀÌ¸ŞÀÏ ÀÏÄ¡
+  				memberFindChk = 1; // íšŒì›ê°€ì…ë˜ì–´ ìˆìŒ, ì´ë©”ì¼ ì¼ì¹˜
   				mav.addObject("member", member);
   				mav.addObject("memberFindChk", memberFindChk);
   				mav.setViewName("member/idFindOk");
   				return mav;
   			} else {
-  				memberFindChk = -1; // ÀÌ¸§ , ÀÌ¸ŞÀÏ Æ²¸²
+  				memberFindChk = -1; // ì´ë¦„ , ì´ë©”ì¼ í‹€ë¦¼
   				mav.addObject("memberFindChk", memberFindChk);
   				mav.setViewName("member/idFindError");
   				return mav;
@@ -173,7 +173,7 @@ public class MemberController {
   		}
   	}
 
-  	// ºñ¹Ğ¹øÈ£Ã£±â
+  	// ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°
   	@RequestMapping(value = "/memberPwFind.dog", method = RequestMethod.GET)
   	public ModelAndView memberPwFindForm() {
   		mav.setViewName("member/pwFind");
@@ -189,7 +189,7 @@ public class MemberController {
   		member = memberService.pwFindById(member);
   		
   		if (member == null) {
-  			memberFindChk = 0; // °¡ÀÔµÇ¾î ÀÖ´Â »ç¶÷ X;
+  			memberFindChk = 0; // ê°€ì…ë˜ì–´ ìˆëŠ” ì‚¬ëŒ X;
   			mav.addObject("memberFindChk", memberFindChk);
   			mav.setViewName("member/idFindError");
   			return mav;
@@ -197,13 +197,13 @@ public class MemberController {
   		} else {
   			
   			if (member.getId().equals(member.getId()) && member.getEmail().equals(member.getEmail())) {
-  				memberFindChk = 1; // È¸¿ø°¡ÀÔµÇ¾î ÀÖÀ½, ÀÌ¸ŞÀÏ ÀÏÄ¡
+  				memberFindChk = 1; // íšŒì›ê°€ì…ë˜ì–´ ìˆìŒ, ì´ë©”ì¼ ì¼ì¹˜
   				mav.addObject("member", member);
   				mav.addObject("memberFindChk", memberFindChk);
   				mav.setViewName("member/pwFindOk");
   				return mav;
   			} else {
-  				memberFindChk = -1; // ÀÌ¸§ , ÀÌ¸ŞÀÏ Æ²¸²
+  				memberFindChk = -1; // ì´ë¦„ , ì´ë©”ì¼ í‹€ë¦¼
   				mav.addObject("memberFindChk", memberFindChk);
   				mav.setViewName("member/idFindError");
   				return mav;
@@ -211,7 +211,7 @@ public class MemberController {
   		}
   	}
 
-  	// È¸¿øÁ¤º¸¼öÁ¤
+  	// íšŒì›ì •ë³´ìˆ˜ì •
   	@RequestMapping("/memberModify.dog")
   	public ModelAndView memberModify(@ModelAttribute("member") MemberModel member, BindingResult result,
   			HttpSession session) {
@@ -237,17 +237,17 @@ public class MemberController {
   		/*new MemberValidator().validate(member, result);*/
   	
   		try {
-  			// À¯È¿¼º°Ë»ç¿¡ Åë°úÇÏ¸é
+  			// ìœ íš¨ì„±ê²€ì‚¬ì— í†µê³¼í•˜ë©´
   			memberService.memberModify(member);
   			mav.setViewName("memberModifyEnd");
   			return mav;
   		} catch (DuplicateKeyException e) {
-  			// db¿¡¼­ idÀÇ Á¦¾àÁ¶°ÇÀ» unique·Î ¹Ù²å±â ¶§¹®¿¡ Áßº¹µÈ ¾ÆÀÌµğ·Î °¡ÀÔÇÏ·ÁÇÏ¸é
-  			// DuplicateKeyExceptionÀÌ ¶ß°ÔµÇ°í
-  			// ¿¹¿ÜÃ³¸®·Î propertiesÆÄÀÏ¿¡ µî·ÏµÈ "invalid"ÀÇ ³»¿ëÀÌ ³ª¿À°Ô ¸¸µé°í È¸¿ø°¡ÀÔÆûÀ¸·Î µ¹¾Æ°¡°ÔÇßÀ½.
-  			// ¾ÆÀÌµğ Áßº¹°Ë»ç
+  			// dbì—ì„œ idì˜ ì œì•½ì¡°ê±´ì„ uniqueë¡œ ë°”ê¿¨ê¸° ë•Œë¬¸ì— ì¤‘ë³µëœ ì•„ì´ë””ë¡œ ê°€ì…í•˜ë ¤í•˜ë©´
+  			// DuplicateKeyExceptionì´ ëœ¨ê²Œë˜ê³ 
+  			// ì˜ˆì™¸ì²˜ë¦¬ë¡œ propertiesíŒŒì¼ì— ë“±ë¡ëœ "invalid"ì˜ ë‚´ìš©ì´ ë‚˜ì˜¤ê²Œ ë§Œë“¤ê³  íšŒì›ê°€ì…í¼ìœ¼ë¡œ ëŒì•„ê°€ê²Œí–ˆìŒ.
+  			// ì•„ì´ë”” ì¤‘ë³µê²€ì‚¬
   			result.reject("invalid", null);
-  			System.out.println("Ä³Ä¡¿¡·¯");
+  			System.out.println("ìºì¹˜ì—ëŸ¬");
   			mav.setViewName("memberModify");
   			return mav;
   		}
@@ -261,7 +261,7 @@ public class MemberController {
              mv.setViewName("check/zipcodeCheck");
           return mv;
    }
-      /*È¸¿ø°¡ÀÔ½Ã ¿ìÆí¹øÈ£ °Ë»ö ·ÎÁ÷*/ 
+      /*íšŒì›ê°€ì…ì‹œ ìš°í¸ë²ˆí˜¸ ê²€ìƒ‰ ë¡œì§*/ 
       @RequestMapping(value="/zipcodeCheck.dog")
       public ModelAndView zipcodeCheck( @ModelAttribute ZipcodeModel zipcodeModel ,HttpServletRequest req) throws Exception{
          
@@ -293,30 +293,30 @@ public class MemberController {
      	@RequestMapping("/memberDelete.dog")
      	public ModelAndView memberDelete(@ModelAttribute("member") MemberModel member, BindingResult result, HttpSession session, HttpServletRequest request) {
      		
-     		MemberModel memberModel; // Äõ¸® °á°ú °ªÀ» ÀúÀåÇÒ °´Ã¼
+     		MemberModel memberModel; // ì¿¼ë¦¬ ê²°ê³¼ ê°’ì„ ì €ì¥í•  ê°ì²´
      		
      		String id;
      		String password;
      		password = request.getParameter("password");
      		int deleteCheck;
      		
-     		//ÇØ´ç ¾ÆÀÌµğÀÇ Á¤º¸¸¦ °¡Á®¿Â´Ù
+     		//í•´ë‹¹ ì•„ì´ë””ì˜ ì •ë³´ë¥¼ ê°€ì ¸ì˜¨ë‹¤
      		id = session.getAttribute("session_member_id").toString();
      		memberModel = (MemberModel) memberService.getMember(id);
      		
      		
      		
      		if(memberModel.getPassword().equals(password)) {
-     			//ÆĞ½º¿öµå°¡ ¸ÂÀ¸¸é
+     			//íŒ¨ìŠ¤ì›Œë“œê°€ ë§ìœ¼ë©´
      			deleteCheck = 1;
-     			//»èÁ¦ Äõ¸® ¼öÇà
+     			//ì‚­ì œ ì¿¼ë¦¬ ìˆ˜í–‰
      			memberService.memberDelete(id);
      			session.removeAttribute("session_member_id");
      			session.removeAttribute("session_member_name");
      		/*	session.removeAttribute("session_member_no");*/
      		}
      		else {
-     			deleteCheck = -1; //ÆĞ½º¿öµå°¡ ¾È¸ÂÀ»¶§
+     			deleteCheck = -1; //íŒ¨ìŠ¤ì›Œë“œê°€ ì•ˆë§ì„ë•Œ
      		}
      		
      		mav.addObject("deleteCheck", deleteCheck);

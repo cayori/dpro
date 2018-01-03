@@ -32,24 +32,24 @@
 
 <div class="basket_list" style="margin-top:35px;margin-bottom:35px;">
 	<div class="basket_list_top">
-		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order_end.gif" alt="Àå¹Ù±¸´Ï"></h2>
-		<img style="width:1000px;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep3.gif" alt="step 01 Àå¹Ù±¸´Ï">
+		<h2 class="basketcart"><img src="http://okidogki.com/web/upload/goodymallSkin/title/order_end.gif" alt="ì¥ë°”êµ¬ë‹ˆ"></h2>
+		<img style="width:1000px;" src="http://okidogki.com/web/upload/goodymall15/layout/img_orderStep3.gif" alt="step 01 ì¥ë°”êµ¬ë‹ˆ">
 	</div>
 	<div class="basket_main">
 		<div class="orderInfo">
 	        <div class="complete">
-	        <p>°í°´´ÔÀÇ ÁÖ¹®ÀÌ<br/><br/>¿Ï·á µÇ¾ú½À´Ï´Ù.</p>
+	        <p>ê³ ê°ë‹˜ì˜ ì£¼ë¬¸ì´<br/><br/>ì™„ë£Œ ë˜ì—ˆìŠµë‹ˆë‹¤.</p>
 			<ul>					
 					<c:forEach var="list" items="${orderModel4}" varStatus="status">
 					<c:if test="${status.first }">
 					<li class="number">
-					<strong>ÁÖ¹®¹øÈ£</strong>&nbsp;&nbsp;&nbsp; <span>${list.order_trade_num}</span>
+					<strong>ì£¼ë¬¸ë²ˆí˜¸</strong>&nbsp;&nbsp;&nbsp; <span>${list.order_trade_num}</span>
 					</li>
 					<li class="date">
-					<strong>ÁÖ¹®ÀÏÀÚ</strong>&nbsp;&nbsp;&nbsp;<span><fmt:formatDate value="${list.order_trade_date}" pattern="YY.MM.dd HH:mm" /></span>
+					<strong>ì£¼ë¬¸ì¼ì</strong>&nbsp;&nbsp;&nbsp;<span><fmt:formatDate value="${list.order_trade_date}" pattern="YY.MM.dd HH:mm" /></span>
 					</li>
 					<li class="date">
-					<strong>ÀÔ±İ°èÁÂ¹øÈ£</strong>&nbsp;&nbsp;&nbsp;<span>${list.order_trade_payer}</span>
+					<strong>ì…ê¸ˆê³„ì¢Œë²ˆí˜¸</strong>&nbsp;&nbsp;&nbsp;<span>${list.order_trade_payer}</span>
 					</li>
 					</c:if>
 					</c:forEach>				
@@ -58,9 +58,9 @@
 	    </div>
 	    
 	    <div style="margin-top:15px; text-align:center;">
-			<span class="btn btnC_04 btnP_04"><a href="/pet/main.dog"><input type="button" value="¸ŞÀÎÈ­¸éÀ¸·Î"></a></span>
+			<span class="btn btnC_04 btnP_04"><a href="/pet/main.dog"><input type="button" value="ë©”ì¸í™”ë©´ìœ¼ë¡œ"></a></span>
 			<span class="btn btnC_04 btnP_04">
-			<a href="${contextPath}/pet/order/orderList.dog"><input type="button" value="±¸¸Å³»¿ª"></a>	
+			<a href="${contextPath}/pet/order/orderList.dog"><input type="button" value="êµ¬ë§¤ë‚´ì—­"></a>	
 			</span>	
 		</div>
 	</div>

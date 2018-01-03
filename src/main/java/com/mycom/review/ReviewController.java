@@ -57,7 +57,7 @@ public class ReviewController {
 		return new ReviewModel();
 	}
 	
-	/*/////////////////////////////////////±€∏Ò∑œ/////////////////////////////////////*/
+	/*/////////////////////////////////////Í∏ÄÎ™©Î°ù/////////////////////////////////////*/
 	@RequestMapping(value="/review/reviewList.dog")
 	public ModelAndView reviewList(HttpServletRequest request) throws UnsupportedEncodingException{
 		
@@ -128,7 +128,7 @@ public class ReviewController {
 		return mav;
 	}
 	
-	/*/////////////////////////////////////±€æ≤±‚ ∆˚ ¿Ãµø/////////////////////////////////////*/
+	/*/////////////////////////////////////Í∏ÄÏì∞Í∏∞ Ìèº Ïù¥Îèô/////////////////////////////////////*/
 	@RequestMapping(value="/review/reviewWrite.dog", method=RequestMethod.GET)
 	public ModelAndView reviewForm(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
@@ -136,23 +136,23 @@ public class ReviewController {
 		return mav;
 	}
 	
-	/*/////////////////////////////±€æ≤±‚/////////////////////////////////////*/
+	/*/////////////////////////////Í∏ÄÏì∞Í∏∞/////////////////////////////////////*/
 	@RequestMapping(value="/review/reviewWrite.dog", method=RequestMethod.POST)
 	public String reviewWrite(ReviewModel reviewModel,  BindingResult result,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception, Exception{
 		ModelAndView mav = new ModelAndView();
-		/*∫ß∏Æµ•¿Ã∆Æ*/
+		/*Î≤®Î¶¨Îç∞Ïù¥Ìä∏*/
 		new ReviewValidator().validate(reviewModel, result);
 		if(result.hasErrors()) {
 			mav.setViewName("reviewWrite");
 			return "reviewWrite";
 		}
 		
-		/*¡ŸπŸ≤ﬁ*/
+		/*Ï§ÑÎ∞îÍøà*/
 		String content = reviewModel.getContent().replaceAll("\r\n", "<br />");
 		reviewModel.setContent(content);
 				
-		//æ˜∑ŒµÂ
+		//ÏóÖÎ°úÎìú
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
     	String filename = multipartFile.getOriginalFilename();
         	if (filename != ""){ 
@@ -171,7 +171,7 @@ public class ReviewController {
 		return "redirect:reviewList.dog";
 	}
 	
-	/*/////////////////////////////////////ƒ⁄∏‡∆Æ/////////////////////////////////////*/
+	/*/////////////////////////////////////ÏΩîÎ©òÌä∏/////////////////////////////////////*/
 	@RequestMapping(value="/review/reviewcommWrite.dog", method=RequestMethod.POST)
 	public ModelAndView reviewcommWrite( ReviewcommModel reviewcommModel,
 			HttpServletRequest request, HttpSession session){
@@ -179,7 +179,7 @@ public class ReviewController {
 		ModelAndView mav = new ModelAndView();
 		int no = reviewcommModel.getContent_num();
 		
-		/*¡ŸπŸ≤ﬁ*/
+		/*Ï§ÑÎ∞îÍøà*/
 		String contentt = reviewcommModel.getCommentt().replaceAll("\r\n", "<br />");
 		reviewcommModel.setCommentt(contentt);
 				
@@ -192,7 +192,7 @@ public class ReviewController {
 		return mav;
 	}
 	
-	/*/////////////////////////////////////ªÛºº∫∏±‚/////////////////////////////////////*/
+	/*/////////////////////////////////////ÏÉÅÏÑ∏Î≥¥Í∏∞/////////////////////////////////////*/
 	
 	@RequestMapping("/review/reviewView.dog")
 	public ModelAndView reviewView(HttpServletRequest request){			   
@@ -216,7 +216,7 @@ public class ReviewController {
 		return mav;
 	}
 	
-	/*/////////////////////////////////////±€ªË¡¶/////////////////////////////////////*/
+	/*/////////////////////////////////////Í∏ÄÏÇ≠Ï†ú/////////////////////////////////////*/
 	@RequestMapping("/review/reviewDelete.dog")
 	public ModelAndView reviewDelete(HttpServletRequest request){
 		
@@ -229,7 +229,7 @@ public class ReviewController {
 		return mav;	
 	}
 	
-	/*/////////////////////////////////////ƒ⁄∏‡∆ÆªË¡¶/////////////////////////////////////*/
+	/*/////////////////////////////////////ÏΩîÎ©òÌä∏ÏÇ≠Ï†ú/////////////////////////////////////*/
 	@RequestMapping(value="/review/reviewcommDelete.dog")
 	public ModelAndView qnacommDelete(HttpServletRequest request, ReviewModel reviewModel, ReviewcommModel reviewcommModel){			   
 			ModelAndView mav = new ModelAndView();
@@ -245,7 +245,7 @@ public class ReviewController {
 			
 			return mav;
 	}
-	/*/////////////////////////////////////±€ºˆ¡§ ¿Ãµø/////////////////////////////////////*/
+	/*/////////////////////////////////////Í∏ÄÏàòÏ†ï Ïù¥Îèô/////////////////////////////////////*/
 	@RequestMapping("/review/reviewModify.dog")
 	public ModelAndView reviewModifyForm(@ModelAttribute("reviewModel") ReviewModel reviewModel, BindingResult result, HttpServletRequest request){
 		
@@ -261,18 +261,18 @@ public class ReviewController {
 		return mav;	
 	}
 	
-	/*/////////////////////////////////////±€ ºˆ¡§/////////////////////////////////////*/
+	/*/////////////////////////////////////Í∏Ä ÏàòÏ†ï/////////////////////////////////////*/
 	@RequestMapping("/review/reviewModifySuccess.dog")
 	public ModelAndView reviewModify(ReviewModel reviewModel, MultipartHttpServletRequest multipartHttpServletRequest){
 		
 		ModelAndView mav = new ModelAndView();
         
-        /*¡ŸπŸ≤ﬁ*/
+        /*Ï§ÑÎ∞îÍøà*/
 		String content = reviewModel.getContent().replaceAll("\r\n", "<br />");
 		reviewModel.setContent(content);
 	    
         if (multipartHttpServletRequest.getFile("file") != null){
- 		//∏ﬁ¿Œ ªÛ«∞¿ÃπÃ¡ˆ
+ 		//Î©îÏù∏ ÏÉÅÌíàÏù¥ÎØ∏ÏßÄ
         	MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
         	String filename = multipartFile.getOriginalFilename();
 	        	if (filename != ""){ 

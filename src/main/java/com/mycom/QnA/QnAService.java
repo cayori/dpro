@@ -13,122 +13,122 @@ public class QnAService implements QnADao{
 		@Resource
 		private SqlSessionTemplate sqlSessionTemplate;
 		
-		//±Û¸ñ·Ï
+		//ê¸€ëª©ë¡
 		@Override
 		public List<QnAModel> QnAList() {
 			return sqlSessionTemplate.selectList("QnA.QnAList"); 
 		}
 
-		//±Û¾²±â
+		//ê¸€ì“°ê¸°
 		@Override
 		public int qnaWrite(QnAModel qnaModel) {
 			return sqlSessionTemplate.insert("QnA.QnAWrite", qnaModel);
 		}
 
 		
-		//±Û ÇÏ³ª ºÒ·¯¿À±â
+		//ê¸€ í•˜ë‚˜ ë¶ˆëŸ¬ì˜¤ê¸°
 		@Override
 		public QnAModel QnAView(int no) {
 			return sqlSessionTemplate.selectOne("QnA.QnAView",no); 
 		}
 		
-		//Á¶È¸¼ö Áõ°¡
+		//ì¡°íšŒìˆ˜ ì¦ê°€
 		@Override
 		public int QnAUpdateReadcount(int no) {
 			return sqlSessionTemplate.update("QnA.QnAUpdateReadcount",no); 
 		}
 		
-		//±Û»èÁ¦
+		//ê¸€ì‚­ì œ
 				@Override
 		public int QnADelete(int no) {
 			return sqlSessionTemplate.update("QnA.QnADelete",no); 
 			}
 				
-		//±Û¼öÁ¤
+		//ê¸€ìˆ˜ì •
 			@Override
 		public int QnAModify(QnAModel qnaModel) {
 				return sqlSessionTemplate.update("QnA.QnAModify",qnaModel); 
 				}
 			
-		//´ñ±Û¸ñ·Ï
+		//ëŒ“ê¸€ëª©ë¡
 			@Override
 			public List<QnAcommModel> QnAcommList(int no) {
 				return sqlSessionTemplate.selectList("QnA.QnAcommList", no); 
 			}
 	
 
-		//´ñ±Û¾²±â
+		//ëŒ“ê¸€ì“°ê¸°
 			@Override
 		 public int QnAcommWrite(QnAcommModel QnAcommModel){
 				return sqlSessionTemplate.insert("QnA.QnAcommWrite", QnAcommModel); 
 			}
 					
-		//´ñ±Û»èÁ¦
+		//ëŒ“ê¸€ì‚­ì œ
 			@Override
 		public int QnAcommDelete(QnAcommModel QnAcommModel){
 				return sqlSessionTemplate.delete("QnA.QnAcommDelete",  QnAcommModel); 
 			}
 			
-		//´ñ±Û ¸ğµÎ »èÁ¦
+		//ëŒ“ê¸€ ëª¨ë‘ ì‚­ì œ
 			@Override
 		public int QnAallcommDelete(int no){
 				return sqlSessionTemplate.delete("QnA.QnAallcommDelete", no); 
 			}
 	
-		//´ñ±Û ÃÑ °³¼ö
+		//ëŒ“ê¸€ ì´ ê°œìˆ˜
 		public int QnAcommCount(int no){
 			return sqlSessionTemplate.selectOne("QnA.QnAcommCount", no); 
 			
 		}
 		
-		//´ñ±Û 1 »ó½Â
+		//ëŒ“ê¸€ 1 ìƒìŠ¹
 		public int QnAcommUpdate1(int no){
 			return sqlSessionTemplate.update("QnA.QnAcommUpdate1",no);
 		}
 		
-		//´ñ±Û 1 ÇÏ¶ô
+		//ëŒ“ê¸€ 1 í•˜ë½
 		public int QnAcommUpdate2(int no){
 			return sqlSessionTemplate.update("QnA.QnAcommUpdate2",no);
 		}
-		//°Ô½ÃÆÇ °Ë»ö
-		//Á¦¸ñÀ¸·Î °Ë»ö
+		//ê²Œì‹œíŒ ê²€ìƒ‰
+		//ì œëª©ìœ¼ë¡œ ê²€ìƒ‰
 		@Override
 		public List<QnAModel> QnASearch0(String search) {
 			return sqlSessionTemplate.selectList("QnA.QnASearch0", "%"+search+"%"); 
 		}
 		
-		//³»¿ëÀ¸·Î °Ë»ö
+		//ë‚´ìš©ìœ¼ë¡œ ê²€ìƒ‰
 		@Override
 		public List<QnAModel> QnASearch1(String search) {
 			return sqlSessionTemplate.selectList("QnA.QnASearch1", "%"+search+"%"); 
 		}
 		
-		//ÀÛ¼ºÀÚ·Î °Ë»ö
+		//ì‘ì„±ìë¡œ ê²€ìƒ‰
 		@Override
 		public List<QnAModel> QnASearch2(String search) {
 			return sqlSessionTemplate.selectList("QnA.QnASearch2", "%"+search+"%"); 
 		}
 		
-		//°ü¸®ÀÚ ´äº¯À¯¹« È®ÀÎ ÄŞº¸¹Ú½º
-		//´äº¯¿Ï·á
+		//ê´€ë¦¬ì ë‹µë³€ìœ ë¬´ í™•ì¸ ì½¤ë³´ë°•ìŠ¤
+		//ë‹µë³€ì™„ë£Œ
 		@Override
 		public List<QnAModel> QnAreply1() {
 			return sqlSessionTemplate.selectList("QnA.QnAreply1"); 
 		}
 		
-		//´äº¯Àü
+		//ë‹µë³€ì „
 		@Override
 		public List<QnAModel> QnAreply2(){
 			return sqlSessionTemplate.selectList("QnA.QnAreply2"); 
 		}
 		
 		
-		//°ü¸®ÀÚ ´ñ±Û +1
+		//ê´€ë¦¬ì ëŒ“ê¸€ +1
 		public int AdminupdateReply(int no){
 			return sqlSessionTemplate.update("QnA.AdminupdateReply",no);
 		}
 		
-		//°ü¸®ÀÚ ´ñ±Û -1
+		//ê´€ë¦¬ì ëŒ“ê¸€ -1
 		public int AdmindeleteReply(int no){
 			return sqlSessionTemplate.update("QnA.AdmindeleteReply",no);
 		}

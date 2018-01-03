@@ -138,7 +138,7 @@ public class PetController {
 	public String write(Model model, PetModel petModel ) {
 		
 		
-		System.out.println("±Û¾²±â ½ÃÀÛ");
+		System.out.println("ê¸€ì“°ê¸° ì‹œì‘");
 		
 		petModel.setContent(petModel.getContent().replaceAll("\n", "").replaceAll("\t", "").replaceAll("\r", "").replaceAll("'", "&apos;"));
 		
@@ -149,8 +149,8 @@ public class PetController {
 		index1 += 15;
 		index2 += 32;
 		
-		/*System.out.println(index1+"  1¹øÀÎµ¥±ß");
-		System.out.println(index2+"  2¹øÀÎµ¦½º");
+		/*System.out.println(index1+"  1ë²ˆì¸ë°ê¸‹");
+		System.out.println(index2+"  2ë²ˆì¸ë±ìŠ¤");
 		System.out.println(imgName);*/
 		imgName = imgName.substring(index1, index2);
 		/*System.out.println(imgName);*/
